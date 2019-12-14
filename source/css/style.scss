@@ -13,9 +13,13 @@ body {
   margin: 0 auto;
 }
 
+#nprogress .bar {
+  height: 3px;
+}
+
 
 @import "index";
 @import "_partial/header";
 @import "_partial/footer";
-@import "_partial/jumbotron"
+@import "_partial/jumbotron";
 

@@ -1,17 +1,65 @@
-<section class="posts">
-  <% page.posts.each(function(post){%>
-    <article class="post">
-      <div class="post-title">
-        <a href="<%- url_for(post.path)%>" class="post-title-link"><%= post.title %></a>
+<!-- 主页内容 -->
+<section class="yuki-category">
+  <!-- 后端栏目 -->
+  <div class="cate-box">
+      <div class="cate-logo-b">
+        <h5>Java和C++之间有一堵由内存动态分配和垃圾收集技术所围成的“高墙”,墙外面的人想进去,
+          墙里面的人却想出来。
+        </h5>
       </div>
-      <div class="post-content">
-        <%- post.excerpt %>
+      <div class="cate-logo-s">
+          <h6>《深入理解Jvm》</h6>
       </div>
-      <div class="post-meta">
-        <span class="post-time"><%- date(post.date,"YYYY-MM-DD")%></span>
+      <div class="cate-content">
+        <div class="cate-item-box">
+          <div class="cat-item-top">
+            我是图像
+          </div>
+          <div class="cate-title-box">
+            <h6 class="cate-title">"Java基础要打好"</h6>
+          </div>
+        </div>
+        <div class="cate-item-box">
+          <div class="cat-item-top">
+            我是图像
+          </div>
+          <div class="cate-title-box">
+            <h6 class="cate-title">"Java基础要打好"</h6>
+          </div>
+        </div>
+        <div class="cate-item-box">
+          <div class="cat-item-top">
+            我是图像
+          </div>
+          <div class="cate-title-box">
+            <h6 class="cate-title">"Java基础要打好"</h6>
+          </div>
+        </div>
       </div>
-    </article>
-  <% }) %>
+      <div class="cate-page">
+        1   2   ..... 9   10
+      </div>
+  </div>
+  <!-- 前端栏目 -->
+  <!-- 运维栏目 -->
+  <!-- python栏目 -->
+
+   
 </section>
 
+<% page.posts.each(function(post){%>
+  <article class="post">
+    <div class="post-title">
+      <a href="<%- url_for(post.path)%>" class="post-title-link"><%= post.title %></a>
+    </div>
+    <div class="post-content">
+      <%- post.excerpt %>
+    </div>
+    <div class="post-meta">
+      <span class="post-time"><%- date(post.date,"YYYY-MM-DD")%></span>
+    </div>
+  </article>
+<% }) %> 
+
+// 文章分页
 <%- partial('_partial/paginator') %>

@@ -1,0 +1,51 @@
+.yuki-category{
+    width: 100%;
+    height: 100vh;
+    background-color: palevioletred;
+    box-sizing: border-box;
+
+    .cate-box{
+        padding: 150px;
+
+        .cate-logo-b,.cate-logo-s{
+            text-align: center;
+        }
+
+        .cate-logo-s{
+            padding-top: 30px;
+        }
+
+        .cate-content{
+            width: 100%;
+            padding-top: 100px;;
+            background-color: firebrick;
+            text-align: center;
+
+            .cate-item-box{
+                margin: 0 20px;
+                text-align: left;
+                background-color: skyblue;
+                width: 350px;
+                height: 260px;;
+                display: inline-block;
+
+                .cat-item-top{
+                    width: 100%;
+                    height: 200px;
+                    background-color: palegreen;
+                }
+
+                .cate-title-box{
+                    padding-left: 30px;;
+                    line-height: 60px;
+                }
+            }
+        }
+
+        .cate-page{
+            padding-top: 30px;
+            text-align: center;
+        }
+
+    }
+}

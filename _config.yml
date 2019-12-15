@@ -1,5 +1,15 @@
 menu:
-  Home: /
-  Archive: /archives
-  Github: https://github.com/ahonn
-  Add: /adds
+  首页: {path: /, icon: czs-book }
+  backend: {path: /backend , icon : czs-book}
+  清单: {path: /list, icon : czs-book, submenu: {
+    书单:  {path: /book, icon: czs-book},
+    游戏:  {path: /game, icon: czs-book},
+    视频:  {path: /video, icon: czs-book},
+    古诗:  {path: /song, icon: czs-book}
+  }}
+  留言板: {path: /words, icon : czs-book}
+  赞赏: {path: /donate, icon : czs-book}
+  关于: {path: /about, icon : czs-book, submenu: {
+    我: {path: /me, icon : czs-book},
+    统计: {path: /analyze, icon: czs-book}
+  }}

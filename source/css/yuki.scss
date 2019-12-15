@@ -1,0 +1,38 @@
+body{
+    color: #666666;
+    background: #eeeeee;
+    text-decoration: none;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+
+a{
+    color: #666666;
+    text-decoration: none;
+
+    &:hover{
+        color: #FFA500;
+    }
+}
+
+
+
+
+
+//定义字体
+@font-face{
+    font-family: yuki-dzt;
+    src: url(/fonts/字体管家大侦探体.ttf);
+  }
+  
+  
+  @font-face{
+    font-family: yuki-xds;
+    src: url(/fonts/小电视体.ttf);
+  }
+  
+  @font-face{
+    font-family: yuki-zjd;
+    src: url(/fonts/FZPANGPBJW.TTF);
+  }

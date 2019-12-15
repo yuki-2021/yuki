@@ -6,13 +6,13 @@
         <div class="logo-box">
             <a href="/" class="logo-link">
                 <!-- 打logo -->
-               <div class="logo-top">
-                    <span>進撃</span>
-                    <span>の</span>
-                    <span>Yuki</span> 
+               <div class=" logo-top">
+                    <span class="logo-dzt shake">進撃</span>
+                    <span class="logo-xds shake">の</span>
+                    <span class="logo-zjd shake">yuki</span> 
                </div>
                 <!-- 小logo -->
-               <div class="logo-small">
+               <div class="logo-small shake shake-horizontal">
                     进击的Yuki 
                 </div>
             </a>
@@ -20,16 +20,47 @@
         <!-- 导航nav -->
         <div class="nav-box">
             <nav class="nav-list">
-                <li class="nav-item">链接A</li>
-                <li class="nav-item">链接B</li>
+                <% for(name in theme.menu) {%>
+                    <li class="nav-item-li shake-trigger">
+                        <!-- 一级菜单 -->
+                        <a href="<%- url_for(theme.menu[name].path) %>" class="nav-item shake-slow show-sub-list">
+                            <i class="czs-book shake-crazy"></i>
+                            <%= name %>
+                        </a>
+                        <!-- 二级菜单 -->
+                        <% if(theme.menu[name].submenu != undefined) { %>
+                            <div class="sub-list shake-slow">
+                                <% for(subName in theme.menu[name].submenu){%>
+                                    <a href="<%- url_for(theme.menu[name].submenu[subName].path) %>" class="sub-list-item">
+                                        <i class="czs-book"></i>
+                                        <%= subName %>
+                                    </a>
+                                <% }%>
+                            </div>
+                         <% } %>
+                    </li>
+
+                <% } %>
+                
+<!-- 
+                <div class="sub-item clearfix">
+                    <li class="nav-item-li block">ad</li>
+                    <li class="nav-item-li block">aa</li>
+                    <li class="nav-item-li block">a</li>
+                </div> -->
+                <!-- <li class="nav-item">链接B</li> 
                 <li class="nav-item">链接C</li>
                 <li class="nav-item">链接D</li>
-                <li class="nav-item">链接E</li>
+                <li class="nav-item">链接E</li> -->
             </nav>
         </div>
+
+       
     </div> 
     
 </header>
+
+
 
 <!-- 
 <header class="header">

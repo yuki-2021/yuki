@@ -1,0 +1,23 @@
+//定义通用悬浮框
+@mixin hover-div($width,$menu-margin) {
+    width: $width;
+    padding: $menu-margin;
+    margin-left: -$menu-margin;
+    box-sizing: content-box;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 2px 2px 20px #ccc;
+
+    &:before{
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 0;
+        top: -20px;
+        left: 50%;
+        margin-left: -10px;
+        border: transparent 10px solid;
+        border-bottom-color: #fff;
+      }
+    
+}

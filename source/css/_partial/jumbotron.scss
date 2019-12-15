@@ -1,4 +1,43 @@
 .yuki-jumbotron{
     height: 100vh;
-    background-image: url(../../img/cover/8.webp);
+    // background-image: url(/img/cover/7.webp);
+
+    //居中
+    .jumb-box{
+        text-align: center;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+
+
+        .jumb-title-box{
+            font-size: 60px;
+            
+
+            .logo-dzt{
+                font-family: yuki-dzt;
+            }
+
+            .logo-xds{
+                font-family: yuki-xds;
+            }
+        }
+
+
+        .jumb-words-box{
+            margin-top: 50px;
+            letter-spacing: 5px;
+            font-size: 16px;
+        }
+
+        .jumb-share-box{
+            margin-top: 60px;
+            font-size: 25px;
+
+            a{
+                margin: 8px;
+            }
+        }
+    }
 }

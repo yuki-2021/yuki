@@ -1,15 +1,11 @@
 @import "reset";
 @import "global";
+@import "yuki";
 
-body {
-  background-color: #F2F2F2;
-  font-size: 1.25rem;
-  line-height: 1.5;
-  box-sizing: border-box;
-}
 
+//通用宽度
 .container {
-  max-width: 960px;
+  max-width: 1140px;
   margin: 0 auto;
 }
 
@@ -18,8 +14,22 @@ body {
 }
 
 
+@import "_keyframes/shakeit";
+
+@import "_comp/hover-div";
+
 @import "index";
 @import "_partial/header";
 @import "_partial/footer";
 @import "_partial/jumbotron";
 
+.clearfix{*zoom:1};
+.clearfix::before{
+content: '';
+display: table;
+}
+.clearfix::after{
+content: '';
+display: table;
+clear: both;
+}

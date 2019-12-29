@@ -1,7 +1,56 @@
+<script color="0,0,0" opacity="0.5" count="99" src="https://cdn.bootcss.com/canvas-nest.js/1.0.1/canvas-nest.js" type="text/javascript" charset="utf-8"></script>
 <script>
     var swiper = new Swiper('.backend-container', {
       pagination: {
         el: '.backend-pagination',
       },
     });
+
+    var swiper = new Swiper('.yuki-container-v', {
+      direction: 'vertical',
+      on:{
+        slideChange: function(){
+          if(this.activeIndex == 0){
+            //切换到首页
+            // alert('改变了，activeIndex为'+this.activeIndex);
+            var myHeader = document.querySelector("#guoka-header");
+            myHeader.style.display = "";
+          }else{
+            //切换到其他页面
+            var myHeader = document.querySelector("#guoka-header");
+            myHeader.style.display = "none";
+          }
+         
+        },
+      },
+      pagination: {
+        el: '.yuki-swiper-v',
+        clickable: true,
+      },
+    });
+
+    //结束
+    // var guokaHeader = document.querySelector("#guoka-header");
+    // var headroom = new Headroom(guokaHeader);
+    // headroom.init();
+
+    //评论
+    new Valine({
+            el: '#vcomments',
+            appId: '<API_ID>',
+            appKey: '<API_Key>'
+        });
+
+    //文章目录
+    tocbot.init({
+      // 构建目录的容器
+      tocSelector: '.post-catlog-box',
+      // 文章容器
+      contentSelector: '.post-con',
+      // 需要解析的标题
+      headingSelector: 'h1,h2,h3,h4',
+      hasInnerContainers: false,
+      collapseDepth: 10
+    });
+    
 </script>

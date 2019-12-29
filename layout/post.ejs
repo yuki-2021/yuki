@@ -1,12 +1,53 @@
-这是post页面
 <article class="post">
-  <div class="post-title">
-    <h2 class="title"><%= page.title %></h2>
-  </div>
-   <div class="post-meta">
-    <span class="post-time"><%- date(page.date, "YYYY-MM-DD") %></span>
-  </div>
-  <div class="post-content">
-    <%- page.content %>
+  <div class="post-box">
+    <div class="post-main">
+      <!-- 文章主体 -->
+      <div class="post-con">
+        <div class="post-title">
+          <h2 class="title"><%= page.title %></h2>
+        </div>
+        <div class="post-content">
+          <%- page.content %>
+        </div>
+      </div>
+
+       <!-- 打赏 -->
+       <div class="post-reward-box">
+        <div class="post-reward-btn">
+          赏
+        </div>
+        <div class="post-reward-item-box">
+          <div class="post-reward-item">
+            <div class="post-reward-pic">
+              <img src="/img/reward/zfb.jpg"alt="">
+            </div>
+            <div class="post-reward-pic">
+              <img src="/img/reward/zfb.jpg" alt="">
+            </div>
+          </div>
+        </div>
+        
+      </div>
+        <!-- 分享 -->
+        <div class="post-share-box">
+          <div class="post-lince-box">
+            &copy;商业转载请联系作者获得授权，非商业转载请注明出处。
+          </div>
+          <div class="post-share-item">
+            <div class="social-share"></div>
+          </div>
+        </div>
+     
+      <!-- 评论 -->
+      <div class="post-comment-box">
+        <div id="vcomments"></div>
+      </div>
+
+      <!-- 目录 -->
+      <div class="post-catlog-box">
+        这里是目录
+      </div>
+    </div>
+    
   </div>
 </article>

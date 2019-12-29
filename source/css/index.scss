@@ -1,7 +1,10 @@
+.yuki-container-v{
+    height: 100vh;
+
 .yuki-category{  
     width: 100%;
     height: 100vh;
-    background-color: palevioletred;
+    // background-color: palevioletred;
     box-sizing: border-box;
     position: relative;
 
@@ -13,29 +16,35 @@
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
-        color: #666666;
+        color: #333;
        
         //logo
         .cate-logo-b,.cate-logo-s{
-            font-size: 16px;
+            font-size: 20px;
             text-align: center;
+            color: #333;
+            font-style: italic;
         }
-        .cate-logo-b{
-            color: #555;
-            font-size: 17px;
-            font-weight: 600;
+        .cate-logo-b{  
+            font-size: 20px;
+
+            .cate-icon-bottom{
+                top: 10px;
+                transform: rotate(180deg);
+                position: absolute;
+            }
         }
         .cate-logo-s{
-            font-weight: 600;
-            padding-top: 30px;
+            padding-top: 60px;
+            
         }
 
         //中心内容
         .cate-content{
             box-sizing: content-box;
-            padding-top: 100px;
+            padding-top: 130px;
             position: relative;
-            background-color: firebrick;
+            // background-color: firebrick;
             
             .cate-content-index{
                 width: 100%;
@@ -45,11 +54,15 @@
                     box-sizing: border-box;
                     vertical-align: middle;
                     margin: 0 20px;
-                    background-color: skyblue;
+                    background-color: #fff;
                     width: 300px;
                     height: 260px;
                     display: inline-block;
+                    border-radius: 5px;
+                    box-shadow: 5px 5px 20px -8px rgba($color: #000000, $alpha: 0.5);
     
+
+
                     .cate-item-top{
                         width: 100%;
                         height: 200px;
@@ -73,7 +86,7 @@
             }
 
             .swiper-wrapper{
-                height: 310px;
+                height: 340px;
                 // position: absolute;
                 // bottom: 0px;
                 // margin-bottom: -10px;
@@ -91,9 +104,33 @@
 }
 
 .cate-fontend{
-    background-color: green;
+    // background-color: green;
 }
 
 .cate-operation{
-    background-color: darkcyan;
+    // background-color: darkcyan;
+}
+
+.yuki-xds-index{
+    width: 100%;
+    height: 100vh;
+    background-color: purple;
+    position: relative;
+
+    .cate-xds-top{
+        text-align: center;
+        width: 600px;
+        height: 400px;
+        margin: 90px auto;
+        border: 1px solid red;
+    }
+
+    .cate-xds-footer{
+        width: 100%;
+        position: absolute;
+        bottom: 0px;
+    }
+}
+
+
 }

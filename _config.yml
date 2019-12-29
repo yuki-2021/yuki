@@ -1,15 +1,21 @@
+# 菜单配置
 menu:
-  首页: {path: /, icon: czs-book }
-  backend: {path: /backend , icon : czs-book}
-  清单: {path: /list, icon : czs-book, submenu: {
-    书单:  {path: /book, icon: czs-book},
-    游戏:  {path: /game, icon: czs-book},
-    视频:  {path: /video, icon: czs-book},
-    古诗:  {path: /song, icon: czs-book}
+  首页: {path: /, icon: czs-firewall shake-slow }
+  Y星史: {path: /learn , icon : czs-usb shake-slow, submenu: {
+    英语:  {path: /english, icon: czs-book},
+    影评:  {path: /game, icon: czs-sword},
+    :  {path: /news, icon: czs-play-l},
+    古诗:  {path: /song, icon: czs-taiji}
   }}
-  留言板: {path: /words, icon : czs-book}
-  赞赏: {path: /donate, icon : czs-book}
-  关于: {path: /about, icon : czs-book, submenu: {
-    我: {path: /me, icon : czs-book},
-    统计: {path: /analyze, icon: czs-book}
+  清单: {path: /list, icon : czs-list-clipboard shake-slow, submenu: {
+    书单:  {path: /book, icon: czs-book},
+    游戏:  {path: /game, icon: czs-sword},
+    视频:  {path: /video, icon: czs-play-l},
+    古诗:  {path: /song, icon: czs-taiji}
+  }}
+  留言板: {path: /words, icon : czs-web-edit shake-slow}
+  赞赏: {path: /donate, icon : czs-heart shake-slow}
+  关于: {path: /about, icon : czs-pokemon-ball, submenu: {
+    我: {path: /me, icon : czs-hacker},
+    统计: {path: /analyze, icon: czs-collection}
   }}

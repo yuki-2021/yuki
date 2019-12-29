@@ -1,157 +1,176 @@
-.yuki-header{
-  width: 100%;
-  height:75px;
-  background: white;
-  position: fixed;
-  top: 0;
-  z-index: 99;
-  user-select:none;
-  box-sizing: border-box;
 
-  .header-box{
-    margin: 0 auto;
-    padding: 0 50px;
-    //子元素float起来 父类元素没有高度 所以给一个高度 给不给都行
+@mixin yuki-header-mix($bg,$color) {
+  
+  .yuki-header{
+    width: 100%;
     height:75px;
+    background: $bg;
+    position: fixed;
+    top: 0;
     z-index: 99;
-
-
-    //log-box的css
-    .logo-box{
-      float: left;
-      position: relative;
-
-      //连接样式
-      .logo-link{
-        color: #F2F2F2;
-
-        .logo-top{
-          height: 75px;
-          text-align: center;
-          font-size: 28px;
-
+    user-select:none;
+    box-sizing: border-box;
+    box-shadow: 0 1px 40px -8px rgba(0,0,0,.5);
+  
+    .header-box{
+      margin: 0 auto;
+      padding: 0 50px;
+      //子元素float起来 父类元素没有高度 所以给一个高度 给不给都行
+      height:75px;
+      z-index: 99;
+  
+  
+      //log-box的css
+      .logo-box{
+        float: left;
+      
+  
+        //连接样式
+        .logo-link{
+          display: inline-block;
+          position: relative;
+          color: $color;
+         
+          //logo top
+          .logo-top{
+            height: 75px;
+            text-align: center;
+            font-size: 25px;
+  
+            
+            //设置logo水平居中
+            &::after{
+              content: '';
+              height: 100%; 
+            }
+            &::after,span{
+              display: inline-block;
+              vertical-align: middle;
+            }
+            //设置字体样式
+            .logo-dzt{
+              font-family: yuki-dzt;
+            }
+            .logo-xds{
+              font-family: yuki-xds;
+              font-size: 40px;
+            }
+            .logo-zjd{
+              font-family: yuki-zjd;
+            }
+          }
+        
+          //小标签
+          .logo-small{
+            width: 100%;
+            text-align: center;
+            font-size: 8px;
+            font-weight: 600;
+            line-height: 15px;
+            position: absolute;
+            bottom: 3px;
+            letter-spacing: 10px; 
+          }
+  
           &:hover{
-            .logo-dzt,.logo-xds,.logo-zjd{
-              color: #ffa500 !important;
+              color: #F45A8D; 
+          }
+        }
+  
+        
+      }
+  
+      //右边导航
+      .nav-box{
+        float: right;
+      
+      //给定行高
+      .nav-list{
+        line-height: 75px;
+        
+          //一级别菜单和二级别菜单的容器
+          .nav-item-li{
+            //定义变量  一级菜单和二级菜单通用宽度
+            $menu-margin: 10px;
+            margin: 0 $menu-margin;
+            position: relative;
+            float: left;
+           
+            //一级菜单
+            .nav-item{
+              display: inline-block;
+              font-weight: 500;
+              letter-spacing: 0.1em;
+              color: $color;
+  
+              &:hover{
+                color: #F45A8D;;
+              }
+  
+              &:after,&:hover:after{
+                content: '';
+                background-color: #F45A8D;
+                position: absolute;
+                height: 5px;
+                bottom: 0;
+                left: 0;
+                
+              }  
+              &:after{
+                width: 0;
+                transition: width .5s linear 0s;
+              }
+              &:hover:after{            
+                width: 100%;
+              }
+            }
+  
+            .show-sub-list:hover + div{
+              display: block;
+            }
+            
+  
+            //二级菜单
+          .sub-list{
+            display: none;
+            position: absolute;
+            @include hover-div(100%,$menu-margin);
+  
+            //集成一级菜单样式 添加自定义样式
+            .sub-list-item{
+              @extend .nav-item;
+              display: block;
+              width: 100%;
+              line-height: 50px !important;
+              color: #666;
             }
             
           }
-
-          //设置logo水平居中
-          &::after{
-            content: '';
-            height: 100%;
-           
-          }
-          &::after,span{
-            display: inline-block;
-            vertical-align: middle;
-          }
-
-          //设置字体样式
-          .logo-dzt{
-            font-family: yuki-dzt;
-            color: red;
-          }
-
-          .logo-xds{
-            font-family: yuki-xds;
-            color: green;
-          }
-
-          .logo-zjd{
-            font-family: yuki-zjd;
-          }
-        }
-      }
-
-      //小标签
-      .logo-small{
-        width: 100%;
-        text-align: center;
-        font-size: 8px;
-        font-weight: 600;
-        line-height: 15px;
-        // background-color: teal;
-        position: absolute;
-        bottom: 5px;
-        letter-spacing: 10px; 
-      }
-    }
-
-    //右边导航
-    .nav-box{
-      float: right;
-    
-    //给定行高
-    .nav-list{
-      line-height: 75px;
-      
-        //一级别菜单和二级别菜单的容器
-        .nav-item-li{
-          //定义变量  一级菜单和二级菜单通用宽度
-          $menu-margin: 10px;
-          margin: 0 $menu-margin;
-          position: relative;
-          float: left;
-         
-          //一级菜单
-          .nav-item{
-            display: inline-block;
-            font-weight: 600;
-            letter-spacing: 0.1em;
-
-            &:after,&:hover:after{
-              content: '';
-              background-color: #FFA500;
-              position: absolute;
-              height: 5px;
-              bottom: 0;
-              left: 0;
-              
-            }  
-
-            &:after{
-              width: 0;
-              transition: width .5s linear 0s;
-            }
-
-            &:hover:after{            
-              width: 100%;
-            }
-          }
-
-          .show-sub-list:hover + div{
+  
+          .sub-list:hover{
             display: block;
           }
-          
-
-          //二级菜单
-        .sub-list{
-          display: none;
-          position: absolute;
-          @include hover-div(100%,$menu-margin);
-
-          //集成一级菜单样式 添加自定义样式
-          .sub-list-item{
-            @extend .nav-item;
-            display: block;
-            width: 100%;
-            line-height: 50px !important;
+            
           }
+  
+          
           
         }
-
-          
-        }
-
-        
-        
       }
     }
+  
+  
+  
   }
-
-
-
 }
 
+
+.yuki-header-no-trans{
+  width: 100%;
+  @include yuki-header-mix(#eee,#666);
+}
+
+.yuki-header-trans{
+  width: 100%;
+  @include yuki-header-mix(none,#eee);
+}

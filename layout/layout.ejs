@@ -3,16 +3,21 @@
     <%- partial('_partial/head')%>
     <body>
         <!-- 顶部导航 -->
-        <%- partial('_partial/header')%>
+        <%if(page.path == 'index.html'){%>
+            <%- partial('_partial/header',{headerOpt: 'yuki-header-trans'})%>
+        <%}%>
+        <%if(page.path != 'index.html'){%>
+            <%- partial('_partial/header',{headerOpt: 'yuki-header-no-trans'})%>
+        <%}%>
+        
         <!-- jumbotron -->
-        <%- partial('_partial/jumbotron')%>
+        
         <!-- index页面 -->
         <main class="main">
             <%- body%>
         </main>
 
         <!-- 底部fotter -->
-        <%- partial('_partial/footer')%>
         <%- partial('_partial/foot')%>
     </body>
 </html>

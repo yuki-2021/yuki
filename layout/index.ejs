@@ -1,167 +1,175 @@
-<!-- 主页内容 -->
- <!-- 后端栏目 -->
-<section class="yuki-category cate-backend">
-  <div class="cate-box">
-      <!-- logon内容 -->
-      <div class="cate-logo-b yuki-shake">
-        <h5>Java和C++之间有一堵“高墙”,墙外面的人想进去,墙里面的人却想出来。
-        </h5>
-      </div>
-      <div class="cate-logo-s yuki-shake">
-          <h6>《深入理解Jvm》</h6>
-      </div>
-      <!-- conent内容 -->
-      <div class="cate-content backend-container swiper-container">
-        <div class="swiper-wrapper">
-          <div class="cate-content-index swiper-slide">
-            <% var flag = 0;%>
-            <% page.posts.each(function(post){ %>
-            
-              <%if(flag % 3 == 0 && flag != 0){ %>
-                  <div class="cate-content-index swiper-slide">
-              <%}%>
-    
-              <%if(post.field == 'backend'){%>
-                  <div class="cate-item-box">
-                    <div class="cate-item-top">
-                      <img src="<%- post.cover%>" alt="">
-                    </div>
-                    <div class="cate-title-box">
-                      <h6 class="cate-title">"<%= post.title%>"</h6>
-                    </div>
-                  </div>
-                  <%flag ++;%>
-              <%}%>
-              <% if( flag % 3 == 0 && flag != 0){ %> 
-                  </div>
-              <% } %>
-    
-            <% }) %>
-            <%if(flag % 3 != 0){%>
-              </div>
-            <%}%>
-        </div>
-
-        <!-- Add Pagination -->
-        <div class="backend-pagination swiper-pagination"></div>
-      </div>
-  </div>
-</section>
-<!-- 前端栏目 -->
-<section class="yuki-category cate-fontend">
-  <div class="cate-box">
-      <!-- logon内容 -->
-      <div class="cate-logo-b yuki-shake">
-        <h5>Java和C++之间有一堵“高墙”,墙外面的人想进去,墙里面的人却想出来。
-        </h5>
-      </div>
-      <div class="cate-logo-s yuki-shake">
-          <h6>《深入理解Jvm》</h6>
-      </div>
-      <!-- conent内容 -->
-      <div class="cate-content backend-container swiper-container">
-        <div class="swiper-wrapper">
-          <div class="cate-content-index swiper-slide">
-            <% var flag = 0;%>
-            <% page.posts.each(function(post){ %>
-            
-              <%if(flag % 3 == 0 && flag != 0){ %>
-                  <div class="cate-content-index swiper-slide">
-              <%}%>
-    
-              <%if(post.field == 'backend'){%>
-                  <div class="cate-item-box">
-                    <div class="cate-item-top">
-                      <img src="<%- post.cover%>" alt="">
-                    </div>
-                    <div class="cate-title-box">
-                      <h6 class="cate-title">"<%= post.title%>"</h6>
-                    </div>
-                  </div>
-                  <%flag ++;%>
-              <%}%>
-              <% if( flag % 3 == 0 && flag != 0){ %> 
-                  </div>
-              <% } %>
-    
-            <% }) %>
-            <%if(flag % 3 != 0){%>
-              </div>
-            <%}%>
-        </div>
-
-        <!-- Add Pagination -->
-        <div class="backend-pagination swiper-pagination"></div>
-      </div>
-  </div>
-</section>
-<!-- 运维栏目 -->
-<section class="yuki-category cate-operation">
-  <div class="cate-box">
-      <!-- logon内容 -->
-      <div class="cate-logo-b yuki-shake">
-        <h5>Java和C++之间有一堵“高墙”,墙外面的人想进去,墙里面的人却想出来。
-        </h5>
-      </div>
-      <div class="cate-logo-s yuki-shake">
-          <h6>《深入理解Jvm》</h6>
-      </div>
-      <!-- conent内容 -->
-      <div class="cate-content backend-container swiper-container">
-        <div class="swiper-wrapper">
-          <div class="cate-content-index swiper-slide">
-            <% var flag = 0;%>
-            <% page.posts.each(function(post){ %>
-            
-              <%if(flag % 3 == 0 && flag != 0){ %>
-                  <div class="cate-content-index swiper-slide">
-              <%}%>
-    
-              <%if(post.field == 'backend'){%>
-                  <div class="cate-item-box">
-                    <div class="cate-item-top">
-                      <img src="<%- post.cover%>" alt="">
-                    </div>
-                    <div class="cate-title-box">
-                      <h6 class="cate-title">"<%= post.title%>"</h6>
-                    </div>
-                  </div>
-                  <%flag ++;%>
-              <%}%>
-              <% if( flag % 3 == 0 && flag != 0){ %> 
-                  </div>
-              <% } %>
-    
-            <% }) %>
-            <%if(flag % 3 != 0){%>
-              </div>
-            <%}%>
-        </div>
-
-        <!-- Add Pagination -->
-        <div class="backend-pagination swiper-pagination"></div>
-      </div>
-  </div>
-</section>
-
-
-
-
-
-
-<!-- <% page.posts.each(function(post){%>
-  <article class="post">
-    <div class="post-title">
-      <a href="<%- url_for(post.path)%>" class="post-title-link"><%= post.title %></a>
+<div class="swiper-container yuki-container-v">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide">
+      <%- partial('_partial/jumbotron')%>
     </div>
-    <div class="post-content">
-      <%- post.excerpt %>
-    </div>
-    <div class="post-meta">
-      <span class="post-time"><%- date(post.date,"YYYY-MM-DD")%></span>
-    </div>
-  </article>
-<% }) %>  -->
+    <!-- 后端栏目 -->
+    <section class="yuki-category cate-backend swiper-slide">
+      <div class="cate-box">
+          <!-- logon内容 -->
+          <div class="cate-logo-b">     
+            <h5>  
+              <i class="czs-quote-left"></i>
+              &nbsp;Java 和 C++之间有一堵"高墙",墙外面的人想进去,墙里面的人却想出来。
+              <i class="czs-quote-left cate-icon-bottom"></i>
+            </h5>
+          </div>
+          <div class="cate-logo-s">
+              <h6>《 深入理解JVM虚拟机 》</h6>
+          </div>
+          <!-- conent内容 -->
+          <div class="cate-content backend-container swiper-container">
+            <div class="swiper-wrapper">
+              <div class="cate-content-index swiper-slide">
+                <% var flag = 0;%>
+                <% page.posts.each(function(post){ %>
+                
+                  <%if(flag % 3 == 0 && flag != 0){ %>
+                      <div class="cate-content-index swiper-slide">
+                  <%}%>
+        
+                  <%if(post.field == 'backend'){%>
+                      <a href="<%- url_for(post.path) %>">
+                        <div class="cate-item-box shake-slow">
+                          <div class="cate-item-top">
+                            <img src="<%- post.cover%>" alt="">
+                          </div>
+                          <div class="cate-title-box">
+                            <h6 class="cate-title">"<%= post.title%>"
+                             = |<%= page.path%>|
+                              </h6>
+                          </div>
+                        </div>
+                      </a>
+                      <%flag ++;%>
+                  <%}%>
+                  <% if( flag % 3 == 0 && flag != 0){ %> 
+                      </div>
+                  <% } %>
+        
+                <% }) %>
+                <%if(flag % 3 != 0){%>
+                  </div>
+                <%}%>
+            </div>
+    
+            <!-- Add Pagination -->
+            <div class="backend-pagination swiper-pagination"></div>
+          </div>
+      </div>
+    </section>
+    <!-- 前端栏目 -->
+    <section class="yuki-category cate-fontend swiper-slide">
+      <div class="cate-box">
+          <!-- logon内容 -->
+          <div class="cate-logo-b yuki-shake">
+            <h5>Java和C++之间有一堵“高墙”,墙外面的人想进去,墙里面的人却想出来。
+            </h5>
+          </div>
+          <div class="cate-logo-s yuki-shake">
+              <h6>《深入理解Jvm》</h6>
+          </div>
+          <!-- conent内容 -->
+          <div class="cate-content backend-container swiper-container">
+            <div class="swiper-wrapper">
+              <div class="cate-content-index swiper-slide">
+                <% var flag = 0;%>
+                <% page.posts.each(function(post){ %>
+                
+                  <%if(flag % 3 == 0 && flag != 0){ %>
+                      <div class="cate-content-index swiper-slide">
+                  <%}%>
+        
+                  <%if(post.field == 'backend'){%>
+                      <a href="/" >
+                        asd
+                          <div class="cate-item-box">
+                          <div class="cate-item-top">
+                            <img src="<%- post.cover%>" alt="">
+                          </div>
+                          <div class="cate-title-box">
+                            <h6 class="cate-title">"<%= post.title%>"</h6>
+                          </div>
+                        </div>
+                      </a>
+                      <%flag ++;%>
+                  <%}%>
+                  <% if( flag % 3 == 0 && flag != 0){ %> 
+                      </div>
+                  <% } %>
+        
+                <% }) %>
+                <%if(flag % 3 != 0){%>
+                  </div>
+                <%}%>
+            </div>
+    
+            <!-- Add Pagination -->
+            <div class="backend-pagination swiper-pagination"></div>
+          </div>
+      </div>
+    </section>
+    <!-- 运维栏目 -->
+    <section class="yuki-category cate-operation swiper-slide">
+      <div class="cate-box">
+          <!-- logon内容 -->
+          <div class="cate-logo-b yuki-shake">
+            <h5>Java和C++之间有一堵“高墙”,墙外面的人想进去,墙里面的人却想出来。
+            </h5>
+          </div>
+          <div class="cate-logo-s yuki-shake">
+              <h6>《深入理解Jvm》</h6>
+          </div>
+          <!-- conent内容 -->
+          <div class="cate-content backend-container swiper-container">
+            <div class="swiper-wrapper">
+              <div class="cate-content-index swiper-slide">
+                <% var flag = 0;%>
+                <% page.posts.each(function(post){ %>
+                
+                  <%if(flag % 3 == 0 && flag != 0){ %>
+                      <div class="cate-content-index swiper-slide">
+                  <%}%>
+        
+                  <%if(post.field == 'backend'){%>
+                      <div class="cate-item-box">
+                        <div class="cate-item-top">
+                          <img src="<%- post.cover%>" alt="">
+                        </div>
+                        <div class="cate-title-box">
+                          <h6 class="cate-title">"<%= post.title%>"</h6>
+                        </div>
+                      </div>
+                      <%flag ++;%>
+                  <%}%>
+                  <% if( flag % 3 == 0 && flag != 0){ %> 
+                      </div>
+                  <% } %>
+        
+                <% }) %>
+                <%if(flag % 3 != 0){%>
+                  </div>
+                <%}%>
+            </div>
+    
+            <!-- Add Pagination -->
+            <div class="backend-pagination swiper-pagination"></div>
+          </div>
+      </div>
+    </section>
+    <!--小电视栏目-->
+    <section class="yuki-xds-index swiper-slide">
+      <div class="cate-xds-top">
+        这里是小电视  
+      </div>
+      <div class="cate-xds-footer">
+        <%- partial('_partial/footer')%>  
+      </div>   
+    </section>
+  </div>
+  <div class="swiper-pagination yuki-swiper-v"></div>
+</div>
 
-// 文章分页
+
+
 

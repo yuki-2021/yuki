@@ -4,9 +4,10 @@
     padding: $menu-margin;
     margin-left: -$menu-margin;
     box-sizing: content-box;
-    background-color: #fff;
+    background-color: #eee;
     border-radius: 5px;
     box-shadow: 2px 2px 20px #ccc;
+    z-index: 99999;
 
     &:before{
         content: '';
@@ -17,7 +18,7 @@
         left: 50%;
         margin-left: -10px;
         border: transparent 10px solid;
-        border-bottom-color: #fff;
+        border-bottom-color: #eee;
       }
     
 }

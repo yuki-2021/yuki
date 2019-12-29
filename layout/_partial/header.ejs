@@ -1,62 +1,66 @@
 <!-- header -->
-<header class="yuki-header">
-    <!-- header-box -->
-    <div class="header-box">
-        <!-- logo -->
-        <div class="logo-box">
-            <a href="/" class="logo-link">
-                <!-- 打logo -->
-               <div class=" logo-top">
-                    <span class="logo-dzt shake">進撃</span>
-                    <span class="logo-xds shake">の</span>
-                    <span class="logo-zjd shake">yuki</span> 
-               </div>
-                <!-- 小logo -->
-               <div class="logo-small shake shake-horizontal">
-                    进击的Yuki 
+<header class="<%- headerOpt %> " id="guoka-header">
+    <div class="yuki-header animated bounce">
+        <!-- header-box -->
+        <div class="header-box">
+            <!-- logo -->
+            <div class="logo-box">
+                <a href="/" class="logo-link">
+                    <!-- 打logo -->
+                <div class="logo-top yuki-shake">
+                        <span class="logo-dzt shake-little shake-constant">進撃</span>
+                        <span class="logo-xds shake-little shake-constant">の</span>
+                        <span class="logo-dzt shake-little shake-constant">yuki</span> 
                 </div>
-            </a>
-        </div>
-        <!-- 导航nav -->
-        <div class="nav-box">
-            <nav class="nav-list">
-                <% for(name in theme.menu) {%>
-                    <li class="nav-item-li shake-trigger">
-                        <!-- 一级菜单 -->
-                        <a href="<%- url_for(theme.menu[name].path) %>" class="nav-item shake-slow show-sub-list">
-                            <i class="czs-book shake-crazy"></i>
-                            <%= name %>
-                        </a>
-                        <!-- 二级菜单 -->
-                        <% if(theme.menu[name].submenu != undefined) { %>
-                            <div class="sub-list shake-slow">
-                                <% for(subName in theme.menu[name].submenu){%>
-                                    <a href="<%- url_for(theme.menu[name].submenu[subName].path) %>" class="sub-list-item">
-                                        <i class="czs-book"></i>
-                                        <%= subName %>
-                                    </a>
-                                <% }%>
-                            </div>
-                         <% } %>
-                    </li>
+                    <!-- 小logo -->
+                <div class="logo-small">
+                        心臓を捧げよ!
+                        <!-- <%= headerOpt%> -->
+                    </div>
+                </a>
+            </div>
+            <!-- 导航nav -->
+            <div class="nav-box">
+                <nav class="nav-list">
+                    <% for(name in theme.menu) {%>
+                        <li class="nav-item-li shake-trigger">
+                            <!-- 一级菜单 -->
+                            <a href="<%- url_for(theme.menu[name].path) %>" class="nav-item shake-slow show-sub-list">
+                                <i class="<%- theme.menu[name].icon%>"></i>
+                                <%= name %>
+                            </a>
+                            <!-- 二级菜单 -->
+                            <% if(theme.menu[name].submenu != undefined) { %>
+                                <div class="sub-list shake-slow">
+                                    <% for(subName in theme.menu[name].submenu){%>
+                                        <a href="<%- url_for(theme.menu[name].submenu[subName].path) %>" class="sub-list-item">
+                                            <i class="<%- theme.menu[name].submenu[subName].icon%>"></i>
+                                            <%= subName %>
+                                        </a>
+                                    <% }%>
+                                </div>
+                            <% } %>
+                        </li>
 
-                <% } %>
-                
-<!-- 
-                <div class="sub-item clearfix">
-                    <li class="nav-item-li block">ad</li>
-                    <li class="nav-item-li block">aa</li>
-                    <li class="nav-item-li block">a</li>
-                </div> -->
-                <!-- <li class="nav-item">链接B</li> 
-                <li class="nav-item">链接C</li>
-                <li class="nav-item">链接D</li>
-                <li class="nav-item">链接E</li> -->
-            </nav>
-        </div>
+                    <% } %>
+                    
+    <!-- 
+                    <div class="sub-item clearfix">
+                        <li class="nav-item-li block">ad</li>
+                        <li class="nav-item-li block">aa</li>
+                        <li class="nav-item-li block">a</li>
+                    </div> -->
+                    <!-- <li class="nav-item">链接B</li> 
+                    <li class="nav-item">链接C</li>
+                    <li class="nav-item">链接D</li>
+                    <li class="nav-item">链接E</li> -->
+                </nav>
+            </div>
 
-       
-    </div> 
+        
+        </div> 
+    </div>
+    
     
 </header>
 

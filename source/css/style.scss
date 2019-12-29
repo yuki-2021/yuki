@@ -19,9 +19,12 @@
 @import "_comp/hover-div";
 
 @import "index";
+@import "post";
 @import "_partial/header";
 @import "_partial/footer";
 @import "_partial/jumbotron";
+
+@import "_page/english.scss";
 
 .clearfix{*zoom:1};
 .clearfix::before{

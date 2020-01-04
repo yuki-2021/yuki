@@ -1,45 +1,63 @@
+//定义变量
+$yuki-header-height: 75px;
+$yuki-header-padding: 40px;
+$yuki-toggle-size:1.25rem;
+$yuki-min-screem:830px;
+$yuki-hover-color: #F45A8D;
+$yuki-main-color:#666;
+$yuki-bg-color: #eee;
 
 @mixin yuki-header-mix($bg,$color) {
-  
   .yuki-header{
     width: 100%;
-    height:75px;
+    height: $yuki-header-height;
+    color: $color;
     background: $bg;
     position: fixed;
     top: 0;
     z-index: 99;
     user-select:none;
-    box-sizing: border-box;
     box-shadow: 0 1px 40px -8px rgba(0,0,0,.5);
-  
+    a{color: $color;}
+    a:hover{ color: $yuki-hover-color;}
+    // header-box
     .header-box{
-      margin: 0 auto;
-      padding: 0 50px;
-      //子元素float起来 父类元素没有高度 所以给一个高度 给不给都行
-      height:75px;
-      z-index: 99;
-  
-  
-      //log-box的css
-      .logo-box{
+      padding: 0 $yuki-header-padding;
+      //toggle
+      .header-toggle{
         float: left;
-      
-  
-        //连接样式
+        font-size: $yuki-toggle-size;
+        height: $yuki-header-height;
+        &::before,i{ 
+          display: inline-block;
+          vertical-align: middle;
+        }
+        &::before{
+          height: 100%;
+          content: "";
+        }
+        @media screen and (min-width: $yuki-min-screem) {
+          display: none;
+        }
+      }
+      //log-box
+      .logo-box{
+        float: right;
+        @media screen and (min-width: $yuki-min-screem) {
+          float: left;
+        }
         .logo-link{
           display: inline-block;
           position: relative;
-          color: $color;
-         
           //logo top
           .logo-top{
+            font-family: yuki-dzt;
             height: 75px;
-            text-align: center;
-            font-size: 25px;
-  
-            
-            //设置logo水平居中
-            &::after{
+            position: relative;
+            @media screen and (min-width: $yuki-min-screem) {
+              font-size: 1.6rem;
+            }
+            &::before{
               content: '';
               height: 100%; 
             }
@@ -47,120 +65,98 @@
               display: inline-block;
               vertical-align: middle;
             }
-            //设置字体样式
-            .logo-dzt{
-              font-family: yuki-dzt;
-            }
             .logo-xds{
               font-family: yuki-xds;
               font-size: 40px;
             }
-            .logo-zjd{
-              font-family: yuki-zjd;
-            }
           }
-        
           //小标签
           .logo-small{
             width: 100%;
             text-align: center;
-            font-size: 8px;
+            font-size: 0.5rem;
             font-weight: 600;
-            line-height: 15px;
             position: absolute;
-            bottom: 3px;
-            letter-spacing: 10px; 
-          }
-  
-          &:hover{
-              color: #F45A8D; 
+            bottom: 2px;
+            letter-spacing: 0.25rem; 
+            @media screen and (min-width: $yuki-min-screem){
+              letter-spacing: 0.625rem; 
+            }
           }
         }
   
         
       }
-  
-      //右边导航
+      //logo-nav
       .nav-box{
+        display: none;
         float: right;
-      
-      //给定行高
-      .nav-list{
-        line-height: 75px;
-        
-          //一级别菜单和二级别菜单的容器
+        @media screen and (min-width: $yuki-min-screem){
+          display: block;
+        }
+        .nav-list{
+          line-height: 75px;
           .nav-item-li{
             //定义变量  一级菜单和二级菜单通用宽度
             $menu-margin: 10px;
-            margin: 0 $menu-margin;
+            padding: 0 $menu-margin;
             position: relative;
             float: left;
-           
-            //一级菜单
             .nav-item{
-              display: inline-block;
               font-weight: 500;
-              letter-spacing: 0.1em;
-              color: $color;
-  
-              &:hover{
-                color: #F45A8D;;
-              }
-  
+              letter-spacing: 0.1rem;
+              display: inline-block;
+            } 
+            .sub-list{
+              visibility: hidden;
+              position: absolute;
+              @include hover-div-posi($yuki-bg-color,$yuki-main-color);
+              width: 110%;
+              text-align: center;
+
               &:after,&:hover:after{
                 content: '';
-                background-color: #F45A8D;
-                position: absolute;
                 height: 5px;
+                position: absolute;
+                background-color: $yuki-hover-color;
                 bottom: 0;
                 left: 0;
-                
-              }  
-              &:after{
                 width: 0;
-                transition: width .5s linear 0s;
+                transition: width 0.5s linear 0s;
               }
-              &:hover:after{            
+              &:hover:after{
+                width: 100%;
+              }
+
+
+    
+              //集成一级菜单样式 添加自定义样式
+              .sub-list-item{
+                @extend .nav-item;
+                overflow-wrap: normal;
+                display: block;
+                line-height: 50px !important;
+                color: #666;
+                &:hover{color: $yuki-hover-color;}
+              }
+            }
+            .sub-list:hover{
+              visibility: visible;
+            }
+            .show-sub-list:hover + .sub-list{
+              visibility: visible;
+            }
+            //动态效果
+            .nav-item:hover+.sub-list{
+              &:after{
+                
                 width: 100%;
               }
             }
-  
-            .show-sub-list:hover + div{
-              display: block;
-            }
-            
-  
-            //二级菜单
-          .sub-list{
-            display: none;
-            position: absolute;
-            @include hover-div(100%,$menu-margin);
-  
-            //集成一级菜单样式 添加自定义样式
-            .sub-list-item{
-              @extend .nav-item;
-              display: block;
-              width: 100%;
-              line-height: 50px !important;
-              color: #666;
-            }
-            
           }
-  
-          .sub-list:hover{
-            display: block;
-          }
-            
-          }
-  
-          
-          
         }
       }
     }
-  
-  
-  
   }
 }
 

@@ -1,0 +1,48 @@
+$words-margin-top: 100px;
+$words-max-width: 800px;
+$words-default-padding: 10px;
+
+@mixin center {
+    margin:0 auto;
+}
+
+
+
+@keyframes blink {
+    0% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+}
+
+
+.yuki-words{
+    @include center;
+    margin-top: $words-margin-top;
+    border: 1px solid red;
+    max-width: $words-max-width;
+    padding: $words-default-padding;
+
+    .words-top-box{
+        text-indent: 2rem;
+        color: #666;
+        font-size: 1.1rem;
+        font-family: yuki-xszt;
+        line-height: 2.5rem;
+        font-weight: 1000;
+
+        p,span{
+            line-height: 2.5rem;
+        }
+        .words-blink{
+            
+            opacity: 1;
+            animation: blink 0.7s linear infinite;
+        }
+    }
+}

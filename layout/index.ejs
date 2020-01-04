@@ -1,175 +1,50 @@
-<div class="swiper-container yuki-container-v">
-  <div class="swiper-wrapper">
-    <div class="swiper-slide">
+<div class="yuki-index">
+    <!-- jumb -->
       <%- partial('_partial/jumbotron')%>
-    </div>
-    <!-- 后端栏目 -->
-    <section class="yuki-category cate-backend swiper-slide">
-      <div class="cate-box">
-          <!-- logon内容 -->
-          <div class="cate-logo-b">     
-            <h5>  
-              <i class="czs-quote-left"></i>
-              &nbsp;Java 和 C++之间有一堵"高墙",墙外面的人想进去,墙里面的人却想出来。
-              <i class="czs-quote-left cate-icon-bottom"></i>
-            </h5>
-          </div>
-          <div class="cate-logo-s">
-              <h6>《 深入理解JVM虚拟机 》</h6>
-          </div>
-          <!-- conent内容 -->
-          <div class="cate-content backend-container swiper-container">
-            <div class="swiper-wrapper">
-              <div class="cate-content-index swiper-slide">
-                <% var flag = 0;%>
-                <% page.posts.each(function(post){ %>
-                
-                  <%if(flag % 3 == 0 && flag != 0){ %>
-                      <div class="cate-content-index swiper-slide">
-                  <%}%>
-        
-                  <%if(post.field == 'backend'){%>
-                      <a href="<%- url_for(post.path) %>">
-                        <div class="cate-item-box shake-slow">
-                          <div class="cate-item-top">
-                            <img src="<%- post.cover%>" alt="">
-                          </div>
-                          <div class="cate-title-box">
-                            <h6 class="cate-title">"<%= post.title%>"
-                             = |<%= page.path%>|
-                              </h6>
-                          </div>
-                        </div>
-                      </a>
-                      <%flag ++;%>
-                  <%}%>
-                  <% if( flag % 3 == 0 && flag != 0){ %> 
-                      </div>
-                  <% } %>
-        
-                <% }) %>
-                <%if(flag % 3 != 0){%>
-                  </div>
-                <%}%>
-            </div>
-    
-            <!-- Add Pagination -->
-            <div class="backend-pagination swiper-pagination"></div>
-          </div>
-      </div>
-    </section>
-    <!-- 前端栏目 -->
-    <section class="yuki-category cate-fontend swiper-slide">
-      <div class="cate-box">
-          <!-- logon内容 -->
-          <div class="cate-logo-b yuki-shake">
-            <h5>Java和C++之间有一堵“高墙”,墙外面的人想进去,墙里面的人却想出来。
-            </h5>
-          </div>
-          <div class="cate-logo-s yuki-shake">
-              <h6>《深入理解Jvm》</h6>
-          </div>
-          <!-- conent内容 -->
-          <div class="cate-content backend-container swiper-container">
-            <div class="swiper-wrapper">
-              <div class="cate-content-index swiper-slide">
-                <% var flag = 0;%>
-                <% page.posts.each(function(post){ %>
-                
-                  <%if(flag % 3 == 0 && flag != 0){ %>
-                      <div class="cate-content-index swiper-slide">
-                  <%}%>
-        
-                  <%if(post.field == 'backend'){%>
-                      <a href="/" >
-                        asd
-                          <div class="cate-item-box">
-                          <div class="cate-item-top">
-                            <img src="<%- post.cover%>" alt="">
-                          </div>
-                          <div class="cate-title-box">
-                            <h6 class="cate-title">"<%= post.title%>"</h6>
-                          </div>
-                        </div>
-                      </a>
-                      <%flag ++;%>
-                  <%}%>
-                  <% if( flag % 3 == 0 && flag != 0){ %> 
-                      </div>
-                  <% } %>
-        
-                <% }) %>
-                <%if(flag % 3 != 0){%>
-                  </div>
-                <%}%>
-            </div>
-    
-            <!-- Add Pagination -->
-            <div class="backend-pagination swiper-pagination"></div>
-          </div>
-      </div>
-    </section>
-    <!-- 运维栏目 -->
-    <section class="yuki-category cate-operation swiper-slide">
-      <div class="cate-box">
-          <!-- logon内容 -->
-          <div class="cate-logo-b yuki-shake">
-            <h5>Java和C++之间有一堵“高墙”,墙外面的人想进去,墙里面的人却想出来。
-            </h5>
-          </div>
-          <div class="cate-logo-s yuki-shake">
-              <h6>《深入理解Jvm》</h6>
-          </div>
-          <!-- conent内容 -->
-          <div class="cate-content backend-container swiper-container">
-            <div class="swiper-wrapper">
-              <div class="cate-content-index swiper-slide">
-                <% var flag = 0;%>
-                <% page.posts.each(function(post){ %>
-                
-                  <%if(flag % 3 == 0 && flag != 0){ %>
-                      <div class="cate-content-index swiper-slide">
-                  <%}%>
-        
-                  <%if(post.field == 'backend'){%>
-                      <div class="cate-item-box">
-                        <div class="cate-item-top">
-                          <img src="<%- post.cover%>" alt="">
-                        </div>
-                        <div class="cate-title-box">
-                          <h6 class="cate-title">"<%= post.title%>"</h6>
-                        </div>
-                      </div>
-                      <%flag ++;%>
-                  <%}%>
-                  <% if( flag % 3 == 0 && flag != 0){ %> 
-                      </div>
-                  <% } %>
-        
-                <% }) %>
-                <%if(flag % 3 != 0){%>
-                  </div>
-                <%}%>
-            </div>
-    
-            <!-- Add Pagination -->
-            <div class="backend-pagination swiper-pagination"></div>
-          </div>
-      </div>
-    </section>
-    <!--小电视栏目-->
-    <section class="yuki-xds-index swiper-slide">
-      <div class="cate-xds-top">
-        这里是小电视  
-      </div>
-      <div class="cate-xds-footer">
-        <%- partial('_partial/footer')%>  
-      </div>   
-    </section>
+    <!-- carousel -->
+      <%- partial('_partial/carousel',{carId:'#backend',carT:theme.backendTitle,carST:theme.backendSubTitle,carF:'backend'})%>
+      <%- partial('_partial/carousel',{carId:'#fontend',carT:theme.fontendTitle,carST:theme.fontendSubTitle,carF:'fontend'})%>
+      <%- partial('_partial/carousel',{carId:'#devend',carT:theme.devendTitle,carST:theme.devendSubTitle,carF:'fontend'})%>
+     <!-- 
+
+      -->
   </div>
-  <div class="swiper-pagination yuki-swiper-v"></div>
 </div>
 
 
 
 
+<!--
+  <div class="swiper-wrapper">
+    <% var flag = 0; %>
+    <% page.posts.each(function(post){ %>
+      <%if(flag % 3 == 0){%>
+        <div class="index-content-page swiper-slide">
+      <% }%>
+      <% if(post.field="backend"){%>
+        <% flag ++ ;%>
+        <div class="index-content-item">
+          <div class="index-content-top">
+            <img src="/img/cover/9.jpg">
+          </div>
+        </div>
+      <% } %>
+        
+      <% if(flag % 3 == 0 && flag != 0){%>
+        </div>
+      <% }%>
+    <% })%>
+    <% if(flag %3 != 0){%>
+      </div>
+    <% }%>
+    
+    <div class="index-content-page swiper-slide">
+    </div>
+    <div class="index-content-page swiper-slide">
+      3
+    </div>
+  </div> 
+  <div class="swiper-pagination index-content-pagination">
+    
+  </div>
+-->

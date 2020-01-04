@@ -1,23 +1,22 @@
 <!DOCTYPE html>
 <html>
+    <!-- head -->
     <%- partial('_partial/head')%>
     <body>
-        <!-- 顶部导航 -->
+       <!-- header -->
         <%if(page.path == 'index.html'){%>
-            <%- partial('_partial/header',{headerOpt: 'yuki-header-trans'})%>
+            <%- partial('_partial/header',{headerClass: 'yuki-header-trans'})%>
         <%}%>
         <%if(page.path != 'index.html'){%>
-            <%- partial('_partial/header',{headerOpt: 'yuki-header-no-trans'})%>
-        <%}%>
-        
-        <!-- jumbotron -->
-        
-        <!-- index页面 -->
+            <%- partial('_partial/header',{headerClass: 'yuki-header-no-trans'})%>
+        <%}%> 
+        <!-- index -->
         <main class="main">
-            <%- body%>
+            <%- body %>
         </main>
-
-        <!-- 底部fotter -->
+        <!-- footer -->
+        <%- partial('_partial/footer')%>
+        <!-- foot -->
         <%- partial('_partial/foot')%>
     </body>
 </html>

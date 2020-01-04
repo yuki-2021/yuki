@@ -16,6 +16,7 @@
     <%- js('plugins/valine/Valine.min.js')%>
     <!-- tocbot -->
     <%- css('plugins/tocbot/tocbot.css')%>
+    
     <%- js('plugins/tocbot/tocbot.min.js')%>
 
     
@@ -24,6 +25,7 @@
   
     
     <%- js('js/nprogress.js')%>
+    <%- js('plugins/easy-type/index.js')%>
     <%- js('plugins/swiper/swiper.min.js')%>
     <%- js('plugins/headroom/headroom.js')%>
 
@@ -35,5 +37,8 @@
             NProgress.start(); 
             NProgress.done();
         }
+
+        var yukiLength = 15;
+        console.log(yukiLength);
     </script> 
 </head>

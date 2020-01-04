@@ -1,7 +1,10 @@
+$yuki-color-bg: #eee;
+$yuki-jumb-moblie: 700px;
+$yuki-min-screem:830px;
 .yuki-jumbotron{
     height: 100vh;
     background-image: url(/img/cover/9.jpg);
-
+    color: $yuki-color-bg;
     //居中
     .jumb-box{
         text-align: center;
@@ -9,36 +12,40 @@
         left: 50%;
         top: 50%;
         transform: translate(-50%, -50%);
-
-
+        //jumb-title
         .jumb-title-box{
-            color: #eee;
-            font-size: 60px;
             
-
-            .logo-dzt{
+            font-size: 3.75rem;
+            .jumb-dzt{
                 font-family: yuki-dzt;
             }
-
-            .logo-xds{
+            .jumb-xds{
+                display: block;
                 font-family: yuki-xds;
+                font-size: 5rem;
+                @media screen and (min-width: $yuki-jumb-moblie){
+                    display: inline;
+                }
             }
         }
-
-
+        //jumb-words-box
         .jumb-words-box{
-            color: #eee;
-            margin-top: 50px;
+            margin-top: 3.125rem;
             letter-spacing: 5px;
-            font-size: 16px;
         }
-
+        //jumb-share-box
         .jumb-share-box{
-            margin-top: 60px;
-            font-size: 25px;
-
+            margin-top: 3.75rem;
+            font-size: 1.5rem;
             a{
                 margin: 8px;
+            }
+            span{
+                display: block;
+                padding: 10px 0;
+                @media screen and (min-width:$yuki-min-screem){
+                    display: inline;
+                }
             }
         }
     }

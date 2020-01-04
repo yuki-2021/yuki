@@ -1,35 +1,10 @@
+
 <script color="0,0,0" opacity="0.5" count="99" src="https://cdn.bootcss.com/canvas-nest.js/1.0.1/canvas-nest.js" type="text/javascript" charset="utf-8"></script>
 <script>
-    var swiper = new Swiper('.backend-container', {
-      pagination: {
-        el: '.backend-pagination',
-      },
-    });
 
-    var swiper = new Swiper('.yuki-container-v', {
-      direction: 'vertical',
-      on:{
-        slideChange: function(){
-          if(this.activeIndex == 0){
-            //切换到首页
-            // alert('改变了，activeIndex为'+this.activeIndex);
-            var myHeader = document.querySelector("#guoka-header");
-            myHeader.style.display = "";
-          }else{
-            //切换到其他页面
-            var myHeader = document.querySelector("#guoka-header");
-            myHeader.style.display = "none";
-          }
-         
-        },
-      },
-      pagination: {
-        el: '.yuki-swiper-v',
-        clickable: true,
-      },
-    });
+   
 
-    //结束
+      //结束
     // var guokaHeader = document.querySelector("#guoka-header");
     // var headroom = new Headroom(guokaHeader);
     // headroom.init();
@@ -39,7 +14,13 @@
             el: '#vcomments',
             appId: '<API_ID>',
             appKey: '<API_Key>'
-        });
+    });
+
+    new Valine({
+            el: '#words-comment-box',
+            appId: '<API_ID>',
+            appKey: '<API_Key>'
+    });
 
     //文章目录
     tocbot.init({
@@ -52,5 +33,137 @@
       hasInnerContainers: false,
       collapseDepth: 10
     });
+    
+
+    //打字
+    const obj = {
+      output: '', // 输出内容  使用MVVM框架时可以直接使用
+      type: 'rollback',
+      isEnd: false,
+      speed: 80,
+      backSpeed: 40,
+      sleep: 3000,
+      singleBack: true,
+      sentencePause: true
+    }
+//     var yukiWords = `远古时期，泰坦制造了一个充满魔法能量的巨井，名为永恒之井。<br />
+
+// 　　一群巨魔在这里定居了，渐渐的，他们的身体发生了变化，四肢充满了魔法的力量，面孔也变得英俊美丽。他们不再与过去的同胞为伍，他们自称暗夜精灵，群星之子。<br />
+
+// 　　上层的精灵贵族修习着魔法，他们比巨魔和虫人更加强大。他们成为了大陆新的霸主。<br />
+
+// 　　然而，上层贵族的行为遭到了虚空中一些不怀好意的存在的窥视。燃烧军团的主人，堕落的泰坦，最强大的战士，萨格拉斯，看到了永恒之井的力量。<br />
+
+// 　　于此同时，暗夜精灵的女王，艾萨拉的脸上长出了丑陋的疮疤，她心神错乱。萨格拉斯诱惑着她，让他迎接恶魔的到来。<br />
+    
+// 　　于是，每一位勇士的生平被记录在下方的留言板上面。`;
+
+
+//     const typing = new EasyTyper(obj, yukiWords, ()=>{
+//     }, (output, instance) => {
+//       document.getElementById('words-info').innerHTML = `${output}`
+//     })
+  //window加载完毕
+  window.onload = function(){
+    //window滚动事件
+    window.onscroll = function (event) {
+      event.preventDefault();
+        let scrollTop = document.documentElement.scrollTop;
+        let innerHeight = window.innerHeight;
+        let scrollHeight = document.documentElement.scrollHeight;
+        function touchTopOrBottom(){
+          if(scrollTop == 0){
+            // alert("到达顶部")
+            return 1;
+          }
+          if(scrollHeight == Math.floor(scrollTop + innerHeight)){
+            // alert("到达底部");
+            return -1;
+          }
+          return 0;
+        }
+        let yukiHeader = document.getElementById("guoka-header");
+        if((window.location.pathname == "/") || (window.location.pathname == "/index.html")){
+           if(touchTopOrBottom() == 1){
+            yukiHeader.className = "yuki-header-trans";
+           }else{
+            yukiHeader.className = "yuki-header-no-trans";
+           }
+        }
+    }
+    //滚动
+    function Carousel(){
+      //局部函数
+      function move(currentIndex){
+        this.list.forEach((item,index) => {
+          item.className = "";
+        });
+        currentIndex = parseInt(currentIndex);
+        let next = currentIndex + 1;
+        let prev = currentIndex - 1;
+        if(currentIndex == this.list.length - 1){
+          this.list[currentIndex - 1].className = "small1";
+          this.list[0].className = "small2";
+          }
+          else if(currentIndex == 0){
+            this.list[this.list.length - 1].className = "small1";
+            this.list[currentIndex + 1].className = "small2";
+          }
+          else{
+
+            this.list[currentIndex - 1].className = "small1";
+            this.list[currentIndex + 1].className = "small2";
+          }
+          this.list[currentIndex].className = "big";
+      }
+      function autoMove(){
+        this.timer = setInterval((function() {
+          this.showIndex --;
+          if(this.showIndex < 0){
+            this.showIndex = this.list.length - 1;
+          } 
+          move.call(this,this.showIndex);
+        }).bind(this),2000);
+      }
+      this.ele = null;
+      this.liList = null;
+      this.list = null;
+      this.timer = null;
+      this.showIndex =2;
+      this.initParams = function(obj){
+        this.ele = obj.ele;
+        this.liList = obj.ele.children[0].children
+        this.list = [].slice.call(this.liList);
+      }
+      this.setIndex = function(){
+        let that = this;
+        this.list.forEach((item,index) => {
+          // 01. 设置数据
+          item.setAttribute("data",index);
+          // 02. 设置点击
+          item.onclick = function(event){
+            window.clearInterval(that.timer);
+            let index = this.getAttribute("data");
+            move.call(that,index); 
+            that.showIndex = index;
+            //设置timer
+            autoMove.bind(that);  
+          }
+        });
+        // 03. 设置自动移动
+        autoMove.call(that);  
+        // 04. 移动到指定为位置
+        move.call(that,this.showIndex); 
+      } 
+    }
+    var carList = ["#backend","#fontend","#devend"];
+    carList.forEach(item => {
+      var carousel = new Carousel();
+      carousel.initParams({
+        ele: document.getElementById(item)
+      });
+      carousel.setIndex();
+    });
+  }
     
 </script>

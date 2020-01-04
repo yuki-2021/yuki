@@ -19,3 +19,15 @@ menu:
     我: {path: /me, icon : czs-hacker},
     统计: {path: /analyze, icon: czs-collection}
   }}
+
+# 配置后端标题
+backendTitle: “你毕业才两年，这三年工作经验是怎么来的？！”
+backendSubTitle: “加班。”
+
+#前端标题配置
+fontendTitle: “谁说类风湿性关节炎能遗传的？”
+fontendSubTitle: “类不是继承的吗？”
+
+#运维标题
+devendTitle: “做程序员太辛苦了，我想换行……我该怎么办？”
+devendSubTitle: “敲一下回车。”

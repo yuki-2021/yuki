@@ -1,84 +1,51 @@
 <!-- header -->
-<header class="<%- headerOpt %> " id="guoka-header">
+<header class="<%- headerClass %> " id="guoka-header">
     <div class="yuki-header animated bounce">
         <!-- header-box -->
         <div class="header-box">
+            <!-- toggle -->
+            <div class="header-toggle">
+                <i class="czs-menu-l"></i>
+            </div>
             <!-- logo -->
             <div class="logo-box">
                 <a href="/" class="logo-link">
-                    <!-- 打logo -->
                 <div class="logo-top yuki-shake">
                         <span class="logo-dzt shake-little shake-constant">進撃</span>
                         <span class="logo-xds shake-little shake-constant">の</span>
                         <span class="logo-dzt shake-little shake-constant">yuki</span> 
                 </div>
-                    <!-- 小logo -->
                 <div class="logo-small">
                         心臓を捧げよ!
-                        <!-- <%= headerOpt%> -->
                     </div>
                 </a>
             </div>
-            <!-- 导航nav -->
+            <!-- search -->
             <div class="nav-box">
-                <nav class="nav-list">
+                <ul class="nav-list">
                     <% for(name in theme.menu) {%>
                         <li class="nav-item-li shake-trigger">
-                            <!-- 一级菜单 -->
                             <a href="<%- url_for(theme.menu[name].path) %>" class="nav-item shake-slow show-sub-list">
                                 <i class="<%- theme.menu[name].icon%>"></i>
                                 <%= name %>
                             </a>
-                            <!-- 二级菜单 -->
                             <% if(theme.menu[name].submenu != undefined) { %>
                                 <div class="sub-list shake-slow">
                                     <% for(subName in theme.menu[name].submenu){%>
-                                        <a href="<%- url_for(theme.menu[name].submenu[subName].path) %>" class="sub-list-item">
+                                        <a href="<%- url_for(theme.menu[name].submenu[subName].path) %>" class="nav-item sub-list-item">
                                             <i class="<%- theme.menu[name].submenu[subName].icon%>"></i>
                                             <%= subName %>
                                         </a>
                                     <% }%>
                                 </div>
-                            <% } %>
+                            <% } %> 
                         </li>
-
                     <% } %>
-                    
-    <!-- 
-                    <div class="sub-item clearfix">
-                        <li class="nav-item-li block">ad</li>
-                        <li class="nav-item-li block">aa</li>
-                        <li class="nav-item-li block">a</li>
-                    </div> -->
-                    <!-- <li class="nav-item">链接B</li> 
-                    <li class="nav-item">链接C</li>
-                    <li class="nav-item">链接D</li>
-                    <li class="nav-item">链接E</li> -->
-                </nav>
+                    <li class="nav-item-li">
+                        <i class="czs-search-l">搜索</i>
+                    </li>
+                </ul>
             </div>
-
-        
         </div> 
     </div>
-    
-    
 </header>
-
-
-
-<!-- 
-<header class="header">
-    <div class="blog-title">
-        <a href="<%- url_for()%>" class="logo"><%- config.title%></a>
-    </div>
-    <nav class="navbar">
-        <ul class="menu">
-            <% for(name in theme.menu) {%>
-                <li class="menu-item">
-                    <a href="<%- url_for(theme.menu[name])%>" class="menu-item-link"><%- __('Menu.' + name)%></a>
-                </li>
-            <% } %>
-        </ul>
-    </nav>
-</header>
- -->

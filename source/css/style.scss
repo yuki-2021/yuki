@@ -1,6 +1,16 @@
-@import "reset";
-@import "global";
-@import "yuki";
+@import "common";
+@import "font";
+
+@import "_comp/hover-div";
+
+@import "_partial/header";
+@import "_partial/jumbotron";
+@import "_partial/carousel";
+
+
+@import "_page/index";
+@import "_page/words";
+@import "_page/post";
 
 
 //通用宽度
@@ -16,13 +26,11 @@
 
 @import "_keyframes/shakeit";
 
-@import "_comp/hover-div";
 
-@import "index";
-@import "post";
-@import "_partial/header";
+
+
 @import "_partial/footer";
-@import "_partial/jumbotron";
+
 
 @import "_page/english.scss";
 

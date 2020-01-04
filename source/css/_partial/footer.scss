@@ -1,12 +1,17 @@
+$yuki-foot-font-color:#666666;
 .yuki-fotter{
     text-align: center;
-    height: 180px;
-    background-color:grey;
-    box-sizing: border-box;
-    padding: 60px 60px 50px 60px;
-    line-height: 30px;
+
+    .copyright-box{
+        padding: 1.5rem;
+
+    }
+    h5{
+        color: $yuki-foot-font-color;
+        font-family: 'Ubuntu', sans-serif;
+        letter-spacing: 1px;
+        font-size: 0.8rem;
+        font-weight: normal;
+    }
 }
 
-.shar-box{
-    padding-top: 20px;
-}

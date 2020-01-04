@@ -1,24 +1,3 @@
-body{
-    color: #666666;
-    background: #eeeeee;
-    text-decoration: none;
-    box-sizing: border-box;
-    font-size: 14px;
-}
-
-
-a{
-    color: #666666;
-    text-decoration: none;
-
-    &:hover{
-        color: #FFA500;
-    }
-}
-
-
-
-
 
 //定义字体
 @font-face{
@@ -35,4 +14,9 @@ a{
   @font-face{
     font-family: yuki-zjd;
     src: url(/fonts/FZPANGPBJW.TTF);
+  }
+
+  @font-face{
+    font-family: yuki-xszt;
+    src: url(/fonts/FZXIANGSU16.TTF);
   }

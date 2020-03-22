@@ -1,169 +1,188 @@
+<!-- <%= page.path %> -->
 
-<script color="0,0,0" opacity="0.5" count="99" src="https://cdn.bootcss.com/canvas-nest.js/1.0.1/canvas-nest.js" type="text/javascript" charset="utf-8"></script>
+<script src="/js/jquery-1.8.2.min.js"></script>
+<script type="text/javascript" src="/js/jaliswall.js"></script> -->
+<script type="text/javascript" src="/dist/build.js"></script>
+
 <script>
-
-   
-
-      //结束
-    // var guokaHeader = document.querySelector("#guoka-header");
-    // var headroom = new Headroom(guokaHeader);
-    // headroom.init();
-
-    //评论
-    new Valine({
-            el: '#vcomments',
-            appId: '<API_ID>',
-            appKey: '<API_Key>'
+  $(function () {
+    $('.wall').jaliswall({
+      item: '.article'
     });
+  });
+</script>
 
-    new Valine({
-            el: '#words-comment-box',
-            appId: '<API_ID>',
-            appKey: '<API_Key>'
-    });
+<script color="0,0,0" opacity="0.5" count="99" src="https://cdn.bootcss.com/canvas-nest.js/1.0.1/canvas-nest.js"
+  type="text/javascript" charset="utf-8"></script>
 
-    //文章目录
-    tocbot.init({
-      // 构建目录的容器
-      tocSelector: '.post-catlog-box',
-      // 文章容器
-      contentSelector: '.post-con',
-      // 需要解析的标题
-      headingSelector: 'h1,h2,h3,h4',
-      hasInnerContainers: false,
-      collapseDepth: 10
-    });
-    
-
-    //打字
-    const obj = {
-      output: '', // 输出内容  使用MVVM框架时可以直接使用
-      type: 'rollback',
-      isEnd: false,
-      speed: 80,
-      backSpeed: 40,
-      sleep: 3000,
-      singleBack: true,
-      sentencePause: true
-    }
-//     var yukiWords = `远古时期，泰坦制造了一个充满魔法能量的巨井，名为永恒之井。<br />
-
-// 　　一群巨魔在这里定居了，渐渐的，他们的身体发生了变化，四肢充满了魔法的力量，面孔也变得英俊美丽。他们不再与过去的同胞为伍，他们自称暗夜精灵，群星之子。<br />
-
-// 　　上层的精灵贵族修习着魔法，他们比巨魔和虫人更加强大。他们成为了大陆新的霸主。<br />
-
-// 　　然而，上层贵族的行为遭到了虚空中一些不怀好意的存在的窥视。燃烧军团的主人，堕落的泰坦，最强大的战士，萨格拉斯，看到了永恒之井的力量。<br />
-
-// 　　于此同时，暗夜精灵的女王，艾萨拉的脸上长出了丑陋的疮疤，她心神错乱。萨格拉斯诱惑着她，让他迎接恶魔的到来。<br />
-    
-// 　　于是，每一位勇士的生平被记录在下方的留言板上面。`;
+显示左侧菜单 -->
+<script>
+  $('#header-toggle').click(function () {
+    $("#mask").show()
+    $("#header-mobile").show()
+  });
+  $("#mask").click(function () {
+    $("#header-mobile").hide()
+    $(this).hide()
+  })
+</script>
 
 
-//     const typing = new EasyTyper(obj, yukiWords, ()=>{
-//     }, (output, instance) => {
-//       document.getElementById('words-info').innerHTML = `${output}`
-//     })
-  //window加载完毕
-  window.onload = function(){
-    //window滚动事件
-    window.onscroll = function (event) {
-      event.preventDefault();
-        let scrollTop = document.documentElement.scrollTop;
-        let innerHeight = window.innerHeight;
-        let scrollHeight = document.documentElement.scrollHeight;
-        function touchTopOrBottom(){
-          if(scrollTop == 0){
-            // alert("到达顶部")
-            return 1;
-          }
-          if(scrollHeight == Math.floor(scrollTop + innerHeight)){
-            // alert("到达底部");
-            return -1;
-          }
-          return 0;
+<!-- 显示左侧菜单 -->
+
+<script>
+  new Valine({
+    el: '#vcomments',
+    appId: 'gq9CqTb9mGcxMmMli9tAvcdA-gzGzoHsz',
+    appKey: 'li683tPxvdlGxzfgbqFr8u6m',
+    avatar: 'wavatar',
+    placeholder: '快来给我留言吧~~~~',
+    notify: true,
+    verify: false,
+    highlight: true,
+    recordIP: true,
+    meta: ['nick','mail','link']
+  })
+
+  $('#vcomments').hover(() => {
+    $('#vcomments').addClass("hv");
+  }, () => {
+    $('#vcomments').removeClass("hv");
+  })
+
+  // $(".body").on("scroll",function(e) {
+  //     console.log("aaa") 
+  //   });
+ 
+  console.log($('window'))
+  $(window).on('scroll', () => {
+    console.log("滑动了")
+  })
+
+
+  var botui = new BotUI('botui-app')
+  const initBotUi = async () => {
+    await botui.message.bot({
+      delay: 800,
+      human: false,
+      content: '资深祖安玩家？'
+    })
+    await botui.action.button({ 
+      delay: 200,
+      autoHide: true,
+      addMessage: true,
+      action: [
+        {
+          text: '好像事情不简单😄',
+          value: 'simple'
+        },
+        {
+          text: '听你你继续BB',
+          value: 'simple'
         }
-        let yukiHeader = document.getElementById("guoka-header");
-        if((window.location.pathname == "/") || (window.location.pathname == "/index.html")){
-           if(touchTopOrBottom() == 1){
-            yukiHeader.className = "yuki-header-trans";
-           }else{
-            yukiHeader.className = "yuki-header-no-trans";
-           }
+      ]
+    })
+    await botui.message.add({
+      delay: 400,
+      content: '常年混迹于祖安白银分段'
+    })
+    await botui.message.add({
+      delay: 400,
+      content: '和祖安白银分段的高手不分高下'
+    })
+    await botui.action.button({ 
+      delay: 200,
+      autoHide: true,
+      addMessage: true,
+      action: [
+        {
+          text: '就这😅？',
+          value: 'simple'
+        },
+        {
+          text: '斯国一牛逼🤙',
+          value: 'simple'
         }
+      ]
+    })
+    await botui.message.add({
+      delay: 400,
+      content: '看过很多武侠小说'
+    })
+    await botui.message.add({
+      delay: 400,
+      content: '各类武林秘籍了如指掌'
+    })
+    await botui.action.button({ 
+      delay: 200,
+      autoHide: true,
+      addMessage: true,
+      action: [
+        {
+          text: '脑残🙃？',
+          value: 'simple'
+        },
+        {
+          text: '沙雕🙃？',
+          value: 'simple'
+        }
+      ]
+    })
+    await botui.message.add({
+      delay: 400,
+      content: '好吧，我是yuki，一个菜鸟程序员'
+    })
+    await botui.message.add({
+      delay: 400,
+      content: '这个博客主要用来记录学习笔记和整理学习资料'
+    })
+    await botui.message.add({
+      delay: 400,
+      content: '欢迎你经常来哦😆~~'
+    })
+    let { value: res } = await botui.action.button({ 
+      delay: 200,
+      autoHide: true,
+      addMessage: true,
+      action: [
+        {
+          text: '好的😊',
+          value: 'yes'
+        },
+        {
+          text: '不想来，你能把我怎么办😜',
+          value: 'no'
+        }
+      ]
+    })
+    if(res == 'yes') {
+      await botui.message.bot({
+        delay: 200,
+        content: '爱你~~么么哒😘'
+      })
+    }else {
+      await botui.message.bot({
+        delay: 200,
+        content: 'yuki表示很伤心😭'
+      })
+      await botui.message.bot({
+        delay: 200,
+        content: 'yuki退出了聊天.....'
+      })
     }
-    //滚动
-    function Carousel(){
-      //局部函数
-      function move(currentIndex){
-        this.list.forEach((item,index) => {
-          item.className = "";
-        });
-        currentIndex = parseInt(currentIndex);
-        let next = currentIndex + 1;
-        let prev = currentIndex - 1;
-        if(currentIndex == this.list.length - 1){
-          this.list[currentIndex - 1].className = "small1";
-          this.list[0].className = "small2";
-          }
-          else if(currentIndex == 0){
-            this.list[this.list.length - 1].className = "small1";
-            this.list[currentIndex + 1].className = "small2";
-          }
-          else{
+    await botui.message.bot({
+        delay: 500,
+        content: '哈哈.....'
+    })
+    await botui.message.bot({
+        delay: 500,
+        content: '上面是开玩笑了.....'
+    })
+    await botui.message.bot({
+        delay: 500,
+        content: '一起努力吧👨‍🚒'
+    })
+  };
+  initBotUi();
 
-            this.list[currentIndex - 1].className = "small1";
-            this.list[currentIndex + 1].className = "small2";
-          }
-          this.list[currentIndex].className = "big";
-      }
-      function autoMove(){
-        this.timer = setInterval((function() {
-          this.showIndex --;
-          if(this.showIndex < 0){
-            this.showIndex = this.list.length - 1;
-          } 
-          move.call(this,this.showIndex);
-        }).bind(this),2000);
-      }
-      this.ele = null;
-      this.liList = null;
-      this.list = null;
-      this.timer = null;
-      this.showIndex =2;
-      this.initParams = function(obj){
-        this.ele = obj.ele;
-        this.liList = obj.ele.children[0].children
-        this.list = [].slice.call(this.liList);
-      }
-      this.setIndex = function(){
-        let that = this;
-        this.list.forEach((item,index) => {
-          // 01. 设置数据
-          item.setAttribute("data",index);
-          // 02. 设置点击
-          item.onclick = function(event){
-            window.clearInterval(that.timer);
-            let index = this.getAttribute("data");
-            move.call(that,index); 
-            that.showIndex = index;
-            //设置timer
-            autoMove.bind(that);  
-          }
-        });
-        // 03. 设置自动移动
-        autoMove.call(that);  
-        // 04. 移动到指定为位置
-        move.call(that,this.showIndex); 
-      } 
-    }
-    var carList = ["#backend","#fontend","#devend"];
-    carList.forEach(item => {
-      var carousel = new Carousel();
-      carousel.initParams({
-        ele: document.getElementById(item)
-      });
-      carousel.setIndex();
-    });
-  }
-    
 </script>

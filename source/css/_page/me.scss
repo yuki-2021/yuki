@@ -1,0 +1,27 @@
+@mixin common-border1 {
+    border-width: 40px 380px 115px 310px;
+    border-color: red;
+    border-style: solid;  
+    border-color: transparent;
+    // border-image: url(/img/words-border.png) 40 380 115 310 fill stretch;
+}
+
+.about {
+    @include margin_ctr(800px);
+    padding: 2rem;
+    
+
+    h3{
+        text-align: center;
+        font-size: 1.25rem;
+    }
+    .botui-app-container {
+        width: 100% !important;
+        box-shadow: 1px 2px 5px 0px rgba(0,0,0,.1);
+        padding: 1rem;
+        background-color: #f8f8f8;
+    }
+    .botui-container {
+        background-color: #f8f8f8 !important;
+    }
+}

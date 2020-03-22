@@ -1,0 +1,41 @@
+<!-- book -->
+<div class="mt-25">
+    <%- partial('_partial/ytitle',  {title: 'Yukiの小剧场',subtitle:'爆裂吧 现实 粉碎吧 精神 放逐这个世界!'}) %>
+</div>
+
+<div class="game mt-10 pd-4">
+    <!-- lol -->
+    <h4><%= page.nowSee%></h4>
+    <ul>
+        <%  page.nowList.forEach((item) => { %>
+        <li class="animated flipInX">
+            <div>
+                <img  class="group" src="<%- item.img%>">
+                <h5>
+                    <a href="<%- item.link%>"><%= item.title%></a>
+                    <span><%= item.desc%></span>
+                </h5>
+                
+            </div>
+        </li>
+        <%  }) %>
+    </ul>
+    
+    <!-- lol -->
+    <h4><%= page.againSee%></h4>
+    <ul>
+        <%  page.againList.forEach((item) => { %>
+        <li class="animated flipInX">
+            <div>
+                <img class="group" src="<%- item.img%>">
+                <h5>
+                    <a href="<%- item.link%>"><%= item.title%></a>
+                    <span><%= item.desc%></span>
+                </h5>
+                
+            </div>
+        </li>
+        <%  }) %>
+    </ul>
+    
+</div>

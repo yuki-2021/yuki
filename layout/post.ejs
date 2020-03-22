@@ -1,43 +1,33 @@
-<article class="post">
+<article id="post" class="mt-20 ma">
   <div class="post-box">
     
 
     
-    <div class="post-aside">
-      <!-- 目录 -->
+    <!-- <div class="post-aside">
+   
       <div class="post-catlog-box">
         这里是目录
       </div>
-    </div>
+    </div> -->
 
     <div class="post-main">
       <!-- 文章主体 -->
       <div class="post-con">
-        <div class="post-title">
-          <h2 class="title"><%= page.title %></h2>
-        </div>
-        <div class="post-content">
-          <%- page.content %>
-        </div>
+        <h1 class="title tc"><%= page.title %></h1>
+        <%- page.content %>
       </div>
-
-       <!-- 打赏 -->
-       <div class="post-reward-box">
-        <div class="post-reward-btn">
-          赏
+      <!-- 打赏 -->
+      <div class="post-reward tc mt-20">
+        <span>💰</span>
+        <div>
+            <img src="/img/reward/zfb.jpg"alt="">
+            <img src="/img/reward/zfb.jpg" alt="">
         </div>
-        <div class="post-reward-item-box">
-          <div class="post-reward-item">
-            <div class="post-reward-pic">
-              <img src="/img/reward/zfb.jpg"alt="">
-            </div>
-            <div class="post-reward-pic">
-              <img src="/img/reward/zfb.jpg" alt="">
-            </div>
-          </div>
-        </div>
+        <p>©商业转载请联系作者获得授权，非商业转载请注明出处。</p>
+      </div>
         
-      </div>
+        
+      
         <!-- 分享 -->
         <div class="post-share-box">
           <div class="post-lince-box">

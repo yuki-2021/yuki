@@ -1,48 +1,41 @@
-$words-margin-top: 100px;
-$words-max-width: 800px;
-$words-default-padding: 10px;
+#bg-story {
+  @include margin_ctr(800px);
+  padding: 1rem;
+  text-align: center;
+ 
+  h3 {
+    font-size: 1.5625rem;
+  }
+  
+  .word { 
+      padding: 3.125rem 0;
+      border-image: url(/img/words-border.png) 40 40 40 40 fill stretch;
+      border-width: 40px 40px 50px 50px;
+      border-style: solid;  
+      border-color: transparent; 
 
-@mixin center {
-    margin:0 auto;
-}
+      p{
+        font-size: 1.125rem;
+        line-height: 2.2em;
+        letter-spacing: 1px;
+      }
+  }
 
 
-
-@keyframes blink {
-    0% {
-      opacity: 1;
+  #vcomments {
+    border-radius: 3px;
+    box-shadow: 1px 2px 5px 0px rgba(0,0,0,.1);
+    padding: 1rem;
+    background-color: #fff;
+    
+    margin-top: 2rem;
+    transition: all .3s; 
+    &.hv {
+      margin-top: 1.8rem;
+      box-shadow: 1px 2px 8px 0px rgba(0,0,0,.3);
     }
-    50% {
-      opacity: 0;
+    .info {
+      display: none;
     }
-    100% {
-      opacity: 1;
-    }
-}
-
-
-.yuki-words{
-    @include center;
-    margin-top: $words-margin-top;
-    border: 1px solid red;
-    max-width: $words-max-width;
-    padding: $words-default-padding;
-
-    .words-top-box{
-        text-indent: 2rem;
-        color: #666;
-        font-size: 1.1rem;
-        font-family: yuki-xszt;
-        line-height: 2.5rem;
-        font-weight: 1000;
-
-        p,span{
-            line-height: 2.5rem;
-        }
-        .words-blink{
-            
-            opacity: 1;
-            animation: blink 0.7s linear infinite;
-        }
-    }
+  }
 }

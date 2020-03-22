@@ -1,29 +1,35 @@
-<!-- 第一屏幕显示内容 -->
+<!-- jumbotron -->
 <div class="yuki-jumbotron">
     <div class="jumb-box">
-        <div class="jumb-title-box yuki-shake">
-            <div class="shake-little shake-constant">
-                <span class="jumb-dzt">進撃</span>
-                <span class="jumb-xds">の</span>
-                <span class="jumb-dzt">yuki</span> 
+        <div class="animated wobble">
+            <div class="jumb-title yuki-shake">
+                <div class="shake shake-little shake-constant ">
+                    <span class="jumb-dzt">進撃</span>
+                    <span class="jumb-xds">の</span>
+                    <span class="jumb-dzt">yuki</span> 
+                </div>
             </div>
-        </div>
-        <div class="jumb-words-box">
-            <span>在最好的年代去实现你的梦想吧!!!</span>
-        </div>
-        <div class="jumb-share-box">
-           <span>
-            <a title="github" style="color: black;"><i class="czs-github-logo"></i></a>
-            <a title="微博" style="color: red;"><i class="czs-weibo"></i></a>
-            <a title="telegram" style="color: #3385FF;"><i class="czs-telegram"></i></a>
-            <a title="qq空间" style="color: #FDD100;"><i class="czs-qzone"></i></a>
-           </span>
-           <span>
-            <a title="知乎" style="color: #2EAEE5;"><i class="czs-zhihu"></i></a>
-            <a title="bilibili" style="color: pink;"><i class="czs-bilibili"></i></a>
-            <a title="qq" style="color: red;"><i class="czs-qq"></i></a>
-            <a title="微信" style="color: #00C70C"><i class="czs-weixin"></i></a>
-           </span>
+            <div class="jumb-words">
+                <span><%= theme.pcSubTitle %></span>
+            </div>
+            <div class="jumb-share">
+                <% var count = 0; %>
+                <% for(name in theme.pcLinks) { %>
+                <%if( count % 4 == 0) {%>
+                    <span>
+                <%}%>
+                <a href="<%- theme.pcLinks[name].url %>" 
+                    style="color: #<%- theme.pcLinks[name].color %>;">
+                    <i class="<%- theme.pcLinks[name].icon %>"></i>
+                </a>
+                <%if( count %4 == 3) {%>
+                    </span>
+                <%}%> 
+                <% count ++ %>
+                <% } %>
+            </div>
         </div>
     </div>
 </div>
+
+  

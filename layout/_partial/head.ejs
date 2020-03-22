@@ -2,10 +2,11 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
     <title><%= config.title %></title>
-    <%- css('plugins/animate/animate.css')%>
-    <%- css('css/csshake.css')%>
+
+
+    <%- css('dist/css/build.css')%>
+    
     <%- css('css/nprogress.css')%>
-    <%- css('css/style.css')%>
     <%- css('plugins/strawberry/style.css')%>
     <%- css('plugins/font-awesome/css/font-awesome.min.css')%>
     <%- css('plugins/swiper/swiper.min.css')%>
@@ -14,12 +15,15 @@
     <%- js('plugins/sharejs/js/social-share.min.js') %>
     <!-- valine -->
     <%- js('plugins/valine/Valine.min.js')%>
+    <%- js('plugins/valine/av-min.js')%>
     <!-- tocbot -->
     <%- css('plugins/tocbot/tocbot.css')%>
-    
     <%- js('plugins/tocbot/tocbot.min.js')%>
-
-    
+    <!-- botui -->
+    <%- css('plugins/botui/botui-theme-default.css')%>
+    <%- css('plugins/botui/botui.min.css')%>
+    <%- js('plugins/botui/vue.js')%>
+    <%- js('plugins/botui/botui.js')%>
 
     
   
@@ -30,6 +34,10 @@
     <%- js('plugins/headroom/headroom.js')%>
 
 
+
+
+    <!-- emojify -->
+    <%- css('plugins/emojify/css/basic/emojify.css')%>
   
      <script>
         NProgress.configure({ease:'ease-in-out',speed:300});

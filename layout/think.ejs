@@ -1,0 +1,19 @@
+<div class="yuki-think">
+
+    <div class="mt-25 mb-5">
+        <%- partial('_partial/ytitle',  {title: 'Yukiの随想录',subtitle:'爆裂吧 现实 粉碎吧 精神 放逐这个世界!'}) %>
+    </div>
+
+     <% site.posts.each(function(item) { %>
+        <% if (item.field == 'think') {%>
+            <div class="think-item mt-10 animated flipInX">
+                <h3><a href="<%- url_for(item.path)%>"><%= item.title%></a></h3>
+                <p><%= item.desc %>...</p>
+                <p>
+                    <span><abbr>🤣</abbr><%= date(item.date, 'YYYY-MM') %></span>
+                    <span><abbr>😄</abbr><%= item.about  %></span>
+                </p>
+            </div>
+        <% } %>
+    <% }) %> 
+</div>

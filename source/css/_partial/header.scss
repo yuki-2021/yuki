@@ -1,172 +1,173 @@
 //定义变量
-$yuki-header-height: 75px;
-$yuki-header-padding: 40px;
+$header-height: 75px;
 $yuki-toggle-size:1.25rem;
 $yuki-min-screem:830px;
 $yuki-hover-color: #F45A8D;
 $yuki-main-color:#666;
 $yuki-bg-color: #eee;
 
-@mixin yuki-header-mix($bg,$color) {
-  .yuki-header{
-    width: 100%;
-    height: $yuki-header-height;
-    color: $color;
-    background: $bg;
-    position: fixed;
-    top: 0;
-    z-index: 99;
-    user-select:none;
-    box-shadow: 0 1px 40px -8px rgba(0,0,0,.5);
-    a{color: $color;}
-    a:hover{ color: $yuki-hover-color;}
-    // header-box
-    .header-box{
-      padding: 0 $yuki-header-padding;
-      //toggle
-      .header-toggle{
-        float: left;
-        font-size: $yuki-toggle-size;
-        height: $yuki-header-height;
-        &::before,i{ 
-          display: inline-block;
-          vertical-align: middle;
-        }
-        &::before{
-          height: 100%;
-          content: "";
-        }
-        @media screen and (min-width: $yuki-min-screem) {
-          display: none;
-        }
+@mixin com_tooltip($size,$color) {
+  &::before {
+    content: "";
+    display: block;
+    border-bottom: $size solid $color;
+    border-left: $size solid transparent;
+    border-right: $size solid transparent;
+    @include pos_abs(50%,0,0);
+    transform: translate(-50%,-100%);
+
+  }
+}
+
+@mixin header_botoom($width,$height,$scale) {
+     &::after {
+        content: "";
+        width: $width;
+        height: $height;
+        @include pos_abs_lb(0,0,0);
+        background-color: #f45a8d;
+        transition: all 1s ;
+        transform: scale($scale);
       }
-      //log-box
-      .logo-box{
-        float: right;
-        @media screen and (min-width: $yuki-min-screem) {
-          float: left;
-        }
-        .logo-link{
-          display: inline-block;
-          position: relative;
-          //logo top
-          .logo-top{
-            font-family: yuki-dzt;
-            height: 75px;
-            position: relative;
-            @media screen and (min-width: $yuki-min-screem) {
-              font-size: 1.6rem;
-            }
-            &::before{
-              content: '';
-              height: 100%; 
-            }
-            &::after,span{
-              display: inline-block;
-              vertical-align: middle;
-            }
-            .logo-xds{
-              font-family: yuki-xds;
-              font-size: 40px;
-            }
-          }
-          //小标签
-          .logo-small{
-            width: 100%;
-            text-align: center;
-            font-size: 0.5rem;
-            font-weight: 600;
-            position: absolute;
-            bottom: 2px;
-            letter-spacing: 0.25rem; 
-            @media screen and (min-width: $yuki-min-screem){
-              letter-spacing: 0.625rem; 
-            }
-          }
-        }
-  
-        
+}
+
+.yuki-header{
+  background-color: #f8f8f8;
+  padding: 0 3em;
+  @include pos_fixed(0,0,99);
+  box-shadow: 0 1px 40px -8px rgba(0,0,0,.5);
+
+  .header-logo {
+    @include flex_col_ctr_ctr;
+    height: $header-height;
+    div:first-child {
+      font-size: 1.6rem;
+      font-family: yuki-dzt;
+      span:nth-child(2) {
+        font-family: yuki-xds;
       }
-      //logo-nav
-      .nav-box{
-        display: none;
-        float: right;
-        @media screen and (min-width: $yuki-min-screem){
+    }
+  }
+
+  .header-nav {
+    .nav-item {
+      height: $header-height;
+      line-height: $header-height;
+      padding:0 .9em;
+      position: relative;
+      text-align: center;
+      @include header_botoom(100%, 5px,0);
+
+      &:hover {
+        .sub-nav {
           display: block;
         }
-        .nav-list{
-          line-height: 75px;
-          .nav-item-li{
-            //定义变量  一级菜单和二级菜单通用宽度
-            $menu-margin: 10px;
-            padding: 0 $menu-margin;
-            position: relative;
-            float: left;
-            .nav-item{
-              font-weight: 500;
-              letter-spacing: 0.1rem;
-              display: inline-block;
-            } 
-            .sub-list{
-              visibility: hidden;
-              position: absolute;
-              @include hover-div-posi($yuki-bg-color,$yuki-main-color);
-              width: 110%;
-              text-align: center;
+        @include header_botoom(100%,5px,1);
+        
+      }
+    }
+    .sub-nav {
+      z-index: 99;
+      display: none;
+      width: 100%;
+      background-color: #f8f8f8;
+      border-radius: 5px;
+      box-shadow: 2px 2px 20px #ccc;
+      @include com_tooltip(10px, #f8f8f8);
+      @include pos_abs(0,65px,99);
 
-              &:after,&:hover:after{
-                content: '';
-                height: 5px;
-                position: absolute;
-                background-color: $yuki-hover-color;
-                bottom: 0;
-                left: 0;
-                width: 0;
-                transition: width 0.5s linear 0s;
-              }
-              &:hover:after{
-                width: 100%;
-              }
+      @include header_botoom(100%, 5px,0);
+      &:hover {
+        @include header_botoom(100%, 5px,1);
+      }
+      
+      .sub-nav-item {
+        line-height: 3rem;  
+      }
+    }    
+  }
+
+  
+  .header-toggle {
+    display: none;
+  }
+
+  @media screen and (max-width: 825px) {
+    padding:0 .5em;
+  }
+  @media screen and (max-width: 685px) {
+    padding: 0 15px;
+    .header-logo {
+      float: right;
+    }
+    .header-nav {
+      display: none;
+    }
+    .header-toggle {
+      line-height: 75px;
+      float: left;
+      display: block;
+    }
+  }
+}
+
+#header-mobile {
+  display: none;
+  @include pos_fixed(0,0,100);
+  width: 45%;
+  height: 100vh;
+  background-color: #f8f8f8;
+  overflow-y: scroll;
+ 
+  .mobile-con {
+    padding-top: 3rem;
+    overflow-y: scroll;
+    @include flex_base(column,start,center);
+
+    img {
+      width: 60%;
+      border-radius: 50%;
+    }
+
+    .mobile-title {
+      font-size: 1.25rem;
+      font-family: yuki-dzt;
+      line-height: 5em;
+      span:nth-child(2) {
+        font-family: yuki-xds;
+      }
+    }
+
+    .mobile-links {
+      i {
+        font-size: 1rem;
+        margin: 0 .3em;
+      }
+    }
 
 
-    
-              //集成一级菜单样式 添加自定义样式
-              .sub-list-item{
-                @extend .nav-item;
-                overflow-wrap: normal;
-                display: block;
-                line-height: 50px !important;
-                color: #666;
-                &:hover{color: $yuki-hover-color;}
-              }
-            }
-            .sub-list:hover{
-              visibility: visible;
-            }
-            .show-sub-list:hover + .sub-list{
-              visibility: visible;
-            }
-            //动态效果
-            .nav-item:hover+.sub-list{
-              &:after{
-                
-                width: 100%;
-              }
-            }
-          }
-        }
+  }
+  
+ 
+  
+
+  
+
+  
+  
+ 
+  ul {
+    margin-top: 2rem;
+    li {
+      line-height: 2em;
+    }
+    .sub-mobile-nav-item{
+      a {
+        padding-left: .8rem;
+        color:#9cacc5;
       }
     }
   }
 }
 
 
-.yuki-header-no-trans{
-  width: 100%;
-  @include yuki-header-mix(#eee,#666);
-}
-
-.yuki-header-trans{
-  width: 100%;
-  @include yuki-header-mix(none,#eee);
-}

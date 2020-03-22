@@ -1,0 +1,22 @@
+<div class="mt-25">
+    <%- partial('_partial/ytitle',  {title: 'Yukiの技能点',subtitle:'爆裂吧 现实 粉碎吧 精神 放逐这个世界!'}) %>
+</div>
+<div class="tags-con mt-5 mb-5">
+    <div class="tags-list animated bounceInRight">
+        <h3>标签列表</h3>
+        <%- tagcloud({
+            min_font: 16, 
+            max_font: 25, 
+            amount: 999, 
+            color: true, 
+            start_color: '#333', 
+            end_color: '#333',
+        }) %>
+    </div>
+    <div class="animated bounceInLeft">
+        <%- partial('_partial/tagcloud.ejs')%>
+    </div>
+</div>
+
+
+

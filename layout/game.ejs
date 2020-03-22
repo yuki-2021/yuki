@@ -1,0 +1,41 @@
+<!-- book -->
+<div class="mt-25">
+    <%- partial('_partial/ytitle',  {title: 'YukiのGAMES',subtitle:'爆裂吧 现实 粉碎吧 精神 放逐这个世界!'}) %>
+</div>
+
+<div class="game mt-10 pd-4">
+    <!-- lol -->
+    <h4><%= page.dmxyHeros%></h4>
+    <ul>
+        <%  page.dmxyList.forEach((item) => { %>
+        <li class="animated flipInX">
+            <div>
+                <img src="<%- item.img%>">
+                <h5>
+                    <a href="<%- item.link%>"><%= item.title%></a>
+                    <span><%= item.desc%></span>
+                </h5>
+                
+            </div>
+        </li>
+        <%  }) %>
+    </ul>
+    
+    <!-- lol -->
+    <h4><%= page.aonyHeros%></h4>
+    <ul>
+        <%  page.aonyList.forEach((item) => { %>
+        <li class="animated flipInX">
+            <div>
+                <img src="<%- item.img%>">
+                <h5>
+                    <a href="<%- item.link%>"><%= item.title%></a>
+                    <span><%= item.desc%></span>
+                </h5>
+                
+            </div>
+        </li>
+        <%  }) %>
+    </ul>
+    
+</div>

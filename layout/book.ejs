@@ -1,0 +1,23 @@
+<!-- book -->
+<div class="mt-25">
+    <%- partial('_partial/ytitle',  {title: 'Yukiの魔典',subtitle:'爆裂吧 现实 粉碎吧 精神 放逐这个世界!'}) %>
+</div>
+
+<ul class="book-list">
+    <%  page.booklist.forEach((item) => { %>
+        <li class="animated flipInX">
+            <a href="<%- item.href%>">
+                <img src="<%- item.img%>">
+            </a>
+           <div>
+               <p>
+                   <span>《<%- item.title%>》</span>
+                   <a href=""><%= item.time %></a> · 
+                   <a href=""><%= item.country %></a> · 
+                   <a href=""><%= item.author %></a>
+               </p>
+               <p><%= item.content%></p>
+           </div>
+        </li>
+    <%  }) %>
+</ul>

@@ -1,51 +1,44 @@
 <!-- header -->
-<header class="<%- headerClass %> " id="guoka-header">
-    <div class="yuki-header animated bounce">
-        <!-- header-box -->
-        <div class="header-box">
-            <!-- toggle -->
-            <div class="header-toggle">
-                <i class="czs-menu-l"></i>
-            </div>
-            <!-- logo -->
-            <div class="logo-box">
-                <a href="/" class="logo-link">
-                <div class="logo-top yuki-shake">
-                        <span class="logo-dzt shake-little shake-constant">進撃</span>
-                        <span class="logo-xds shake-little shake-constant">の</span>
-                        <span class="logo-dzt shake-little shake-constant">yuki</span> 
-                </div>
-                <div class="logo-small">
-                        心臓を捧げよ!
-                    </div>
+<header class="yuki-header wa animated rubberBand">
+    <!-- menu-togo -->
+    <div id="header-toggle" class="header-toggle">
+        <a class="cor333"><i class="czs-menu-l"></i></a>
+    </div>
+    <!-- header-logo -->
+    <a href="/" class="text fl header-logo shake-little shake-constant">
+        <div class="shake shake-freeze shake-slow">
+            <span>進撃</span>
+            <span class="shake shake-freeze shake-horizontal">の</span>
+            <span>yuki</span> 
+        </div>
+        <div>
+            心臓を捧げよ!
+        </div>
+    </a>
+    <!-- header-nav -->
+    <div class="fr header-nav">
+        <ul>
+            <% for(name in theme.menu) {%>
+            <li class="fl nav-item">
+                <a href="<%- url_for(theme.menu[name].path) %>" class="text shake shake-slow shake-freeze">
+                    <i class="<%- theme.menu[name].icon%>"></i>
+                    <%= name %>
                 </a>
-            </div>
-            <!-- search -->
-            <div class="nav-box">
-                <ul class="nav-list">
-                    <% for(name in theme.menu) {%>
-                        <li class="nav-item-li shake-trigger">
-                            <a href="<%- url_for(theme.menu[name].path) %>" class="nav-item shake-slow show-sub-list">
-                                <i class="<%- theme.menu[name].icon%>"></i>
-                                <%= name %>
-                            </a>
-                            <% if(theme.menu[name].submenu != undefined) { %>
-                                <div class="sub-list shake-slow">
-                                    <% for(subName in theme.menu[name].submenu){%>
-                                        <a href="<%- url_for(theme.menu[name].submenu[subName].path) %>" class="nav-item sub-list-item">
-                                            <i class="<%- theme.menu[name].submenu[subName].icon%>"></i>
-                                            <%= subName %>
-                                        </a>
-                                    <% }%>
-                                </div>
-                            <% } %> 
+            <% if (theme.menu[name].submenu != null){%>
+                <ul class="sub-nav animated rubberBand">
+                    
+                    <% for(subName in theme.menu[name].submenu){%>
+                        <li class="sub-nav-item">
+                            <a href="<%- url_for(theme.menu[name].submenu[subName].path) %>" class="text">
+                                <i class="<%- theme.menu[name].submenu[subName].icon%>"></i>
+                                <%= subName %>
+                            </a> 
                         </li>
-                    <% } %>
-                    <li class="nav-item-li">
-                        <i class="czs-search-l">搜索</i>
-                    </li>
+                    <% }%>
                 </ul>
-            </div>
-        </div> 
+            <% }%>
+            </li>
+            <% } %>
+        </ul>
     </div>
 </header>

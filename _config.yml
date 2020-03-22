@@ -1,33 +1,42 @@
 # 菜单配置
 menu:
-  首页: {path: /, icon: czs-firewall shake-slow }
-  Y星史: {path: /learn , icon : czs-usb shake-slow, submenu: {
-    英语:  {path: /english, icon: czs-book},
-    影评:  {path: /game, icon: czs-sword},
-    :  {path: /news, icon: czs-play-l},
+  首页: {path: /, icon: czs-firewall }
+  Y星史: {path: /archives , icon : czs-usb, submenu: {
+    标签:  {path: /tags, icon: czs-play-l},
+    归档:  {path: /archives, icon: czs-book},
+    随想:  {path: /think, icon: czs-sword},
     古诗:  {path: /song, icon: czs-taiji}
   }}
-  清单: {path: /list, icon : czs-list-clipboard shake-slow, submenu: {
+  清单: {path: /video, icon : czs-list-clipboard, submenu: {
     书单:  {path: /book, icon: czs-book},
     游戏:  {path: /game, icon: czs-sword},
-    视频:  {path: /video, icon: czs-play-l},
-    古诗:  {path: /song, icon: czs-taiji}
+    番组:  {path: /group, icon: czs-play-l},
+    视频:  {path: /video, icon: czs-taiji}
   }}
-  留言板: {path: /words, icon : czs-web-edit shake-slow}
-  赞赏: {path: /donate, icon : czs-heart shake-slow}
-  关于: {path: /about, icon : czs-pokemon-ball, submenu: {
-    我: {path: /me, icon : czs-hacker},
-    统计: {path: /analyze, icon: czs-collection}
-  }}
+  留言板: {path: /words, icon : czs-web-edit }
+  H联盟: {path: /friends, icon : czs-heart }
+  关于我: {path: /about, icon : czs-pokemon-ball}
 
-# 配置后端标题
-backendTitle: “你毕业才两年，这三年工作经验是怎么来的？！”
-backendSubTitle: “加班。”
+# 移动端头像配置
+mobileAvater: '/img/default-avatar.jpg'
+mobileLinks: 
+  github: { color: 000000, url: https://github.com/Shaodachuan, icon: czs-github-logo}
+  weibo: { color: eb192d, url: https://weibo.com/5129416778/profile?rightmod=1&wvr=6&mod=personinfo, icon: czs-weibo}
+  bilibili: { color: f45a8d, url: https://space.bilibili.com/249767355?spm_id_from=333.334.b_62696c692d6865616465722d6d.8, icon: czs-bilibili}
+  qq: { color: 0366d6, url: http://wpa.qq.com/msgrd?v=3&uin=577746040&site=qq&menu=yes, icon: czs-qq}
+ 
+  
+# Logo
+pcSubTitle: '在最好的年代去实现你的梦想吧!!!'
 
-#前端标题配置
-fontendTitle: “谁说类风湿性关节炎能遗传的？”
-fontendSubTitle: “类不是继承的吗？”
 
-#运维标题
-devendTitle: “做程序员太辛苦了，我想换行……我该怎么办？”
-devendSubTitle: “敲一下回车。”
+# PcLinks
+pcLinks: 
+  github: { color: 000000, url: https://github.com/Shaodachuan, icon: czs-github-logo}
+  weibo: { color: eb192d, url: https://weibo.com/5129416778/profile?rightmod=1&wvr=6&mod=personinfo, icon: czs-weibo}
+  bilibili: { color: f45a8d, url: https://space.bilibili.com/249767355?spm_id_from=333.334.b_62696c692d6865616465722d6d.8, icon: czs-bilibili}
+  微信: { color: 00C70C, url: https://qm.qq.com/cgi-bin/qm/qr?k=VctLQJh7CSCQNFCvrV71v_vyX10HALxv, icon: czs-weixin}
+  steam: { color: 1b2838, url: https://store.steampowered.com/, icon: czs-steam}
+  twitter: { color: 41abe1, url: www.twitter.de/, icon: czs-twitter}
+  facebook: { color: FDD100, url: www.facebook.com, icon: czs-facebook}
+  qq: { color: 0366d6, url: http://wpa.qq.com/msgrd?v=3&uin=577746040&site=qq&menu=yes, icon: czs-qq}

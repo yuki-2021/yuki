@@ -1,12 +1,29 @@
-<div style="margin-top: 100px;"></div>
-<section class="archive">
-  <ul class="post-archive">
-    <% page.posts.each(function (post) { %>
-      <li class="post-item">
-        <span class="post-date"><%= date(post.date, "YYYY-MM-DD") %></span>
-        <a class="post-title" href="<%- url_for(post.path) %>"><%= post.title %></a>
-      </li>
-    <% }) %>
-  </ul>
-</section>
-  <%- partial('_partial/paginator') %>
+<!-- 归档页面 -->
+<div class="mt-25">
+  <div class="mt-25">
+    <%- partial('_partial/ytitle',  {title: 'Yukiの魔法档案',subtitle:'爆裂吧 现实 粉碎吧 精神 放逐这个世界!'}) %>
+  </div>
+</div>
+
+<div class="archive pd-5">
+  <% var lastyear;%>
+  <% page.posts.each(function (post) { %>
+      
+      <% if(lastyear != date(post.date, "YYYY-MM")) { %>
+        <%if(lastyear != undefined) {%>
+          </ul>
+        <%}%>
+        <h3 class="animated flipInX"><span>🥕 </span>DATE: <%= date(post.date, "YYYY-MM")%> </h3>
+        <% lastyear = date(post.date, "YYYY-MM")%>
+        <ul class="archive-con">
+      <% } %>
+
+        <li class="animated flipInX">
+          <div>
+            <a class="archive-title text" href="<%- url_for(post.path) %>"><%= post.title %></a>
+            <span class="archive-date"><%= date(post.date, "YYYY-MM-DD") %></span>
+          </div>
+        </li>
+  <% }) %>
+</div>
+

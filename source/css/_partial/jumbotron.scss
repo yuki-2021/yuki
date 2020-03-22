@@ -1,52 +1,87 @@
-$yuki-color-bg: #eee;
+$yuki-color-bg: #333;
 $yuki-jumb-moblie: 700px;
 $yuki-min-screem:830px;
+
 .yuki-jumbotron{
     height: 100vh;
-    background-image: url(/img/cover/9.jpg);
-    color: $yuki-color-bg;
-    //居中
+    position: relative;
     .jumb-box{
-        text-align: center;
-        position: absolute;
-        left: 50%;
-        top: 50%;
+        @include pos_abs(50%,50%,0);
         transform: translate(-50%, -50%);
-        //jumb-title
-        .jumb-title-box{
-            
+        text-align: center;
+        .jumb-title{
             font-size: 3.75rem;
-            .jumb-dzt{
+            span {
                 font-family: yuki-dzt;
             }
-            .jumb-xds{
-                display: block;
+            span:nth-of-type(2) {
                 font-family: yuki-xds;
-                font-size: 5rem;
-                @media screen and (min-width: $yuki-jumb-moblie){
-                    display: inline;
-                }
             }
         }
-        //jumb-words-box
-        .jumb-words-box{
+        .jumb-words{
             margin-top: 3.125rem;
             letter-spacing: 5px;
         }
         //jumb-share-box
-        .jumb-share-box{
+        .jumb-share{
             margin-top: 3.75rem;
             font-size: 1.5rem;
             a{
                 margin: 8px;
             }
-            span{
+            
+        }
+    }
+    @media screen and (max-width: $yuki-min-screem){
+        .jumb-share {
+             span {
+                 display: block;
+                 padding: .6rem 0;
+             }
+        }
+    }
+    @media screen and (max-width: $yuki-jumb-moblie){
+        .jumb-title {
+            margin-top: 3rem;
+            span:nth-of-type(2) {
                 display: block;
-                padding: 10px 0;
-                @media screen and (min-width:$yuki-min-screem){
-                    display: inline;
-                }
+                font-size: 5rem;
             }
         }
     }
+}
+
+
+// css of wall
+.wall {
+    display: block;
+    position: relative;
+    .wall-column {
+        display: block;
+        float: left;
+        width: 25%;
+        padding: 0 12px;
+        position: relative;
+    }
+    @media (max-width: 640px) {
+        .wall-column {
+          width: 50%;
+        }
+    }
+       @media (max-width: 480px) {
+        .wall-column {
+          width: auto;
+          float: none;
+        }
+    }
+
+    .article {
+        display: block;
+        margin: 0 0 1.8rem 0;
+        padding: 12px;
+        background: #fff;
+        border-radius: 3px;
+        box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.05);
+        transition: all 220ms;
+       }
 }

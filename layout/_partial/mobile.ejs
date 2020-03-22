@@ -1,0 +1,40 @@
+<div id="header-mobile" class="animated bounceInLeft">
+    <div class="mobile-con">
+        <img src="<%- theme.mobileAvater %>" alt="">
+        <div class="mobile-title">
+            <span>進撃</span>
+            <span>の</span>
+            <span>yuki</span> 
+        </div>
+        <div class="mobile-links">
+            
+            <% for(name in theme.mobileLinks) { %>
+                <a href="<%- theme.mobileLinks[name].url %>" style="color: #<%- theme.mobileLinks[name].color %>;">
+                <i class="<%- theme.mobileLinks[name].icon %>"></i>
+                </a>
+            <% } %>
+            <!-- <a title="github" style="color: black;"><i class="czs-github-logo"></i></a>
+            <a title="微博" style="color: red;"><i class="czs-weibo"></i></a>
+            <a title="telegram" style="color: #3385FF;"><i class="czs-telegram"></i></a>
+            <a title="qq空间" style="color: #FDD100;"><i class="czs-qzone"></i></a> -->
+        </div>
+        <ul class="">
+            <% for(name in theme.menu) {%>
+            <li class="">
+                <a href="#" class="text">
+                    <i class="<%- theme.menu[name].icon%>"></i>
+                    <%= name %>
+                </a>
+                <% for(subName in theme.menu[name].submenu){%>
+                    <li class="sub-mobile-nav-item">
+                        <a href="<%- url_for(theme.menu[name].submenu[subName].path) %>" class="">
+                            <i class="<%- theme.menu[name].submenu[subName].icon%>"></i>
+                            <%= subName %>
+                        </a> 
+                    </li>
+                <% }%>
+            </li>
+            <% } %>
+        </ul>
+    </div>        
+</div>

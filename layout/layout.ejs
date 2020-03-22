@@ -2,18 +2,17 @@
 <html>
     <!-- head -->
     <%- partial('_partial/head')%>
-    <body>
-       <!-- header -->
-        <%if(page.path == 'index.html'){%>
-            <%- partial('_partial/header',{headerClass: 'yuki-header-trans'})%>
-        <%}%>
-        <%if(page.path != 'index.html'){%>
-            <%- partial('_partial/header',{headerClass: 'yuki-header-no-trans'})%>
-        <%}%> 
-        <!-- index -->
+    <body style="">
+       <!-- 头部导航栏 -->
+        <!-- if(page.path == 'index.html') -->
+        <%- partial('_partial/header')%>
         <main class="main">
             <%- body %>
         </main>
+        
+        <!-- left -->
+        <div id="mask"></div>
+        <%- partial('_partial/mobile')%>
         <!-- footer -->
         <%- partial('_partial/footer')%>
         <!-- foot -->

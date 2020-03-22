@@ -1,16 +1,25 @@
+// 引入Variable
+@import "_variable";
+@import "_tools";
+
 @import "common";
 @import "font";
+
 
 @import "_comp/hover-div";
 
 @import "_partial/header";
 @import "_partial/jumbotron";
 @import "_partial/carousel";
-
+@import "_partial/archive.scss";
+@import "_partial/list.scss";
 
 @import "_page/index";
 @import "_page/words";
 @import "_page/post";
+@import "_page/me";
+@import "_page/video";
+@import "global";
 
 
 //通用宽度
@@ -32,7 +41,6 @@
 @import "_partial/footer";
 
 
-@import "_page/english.scss";
 
 .clearfix{*zoom:1};
 .clearfix::before{
@@ -43,4 +51,14 @@ display: table;
 content: '';
 display: table;
 clear: both;
+}
+
+
+
+body {
+  background-image:url(/img/cover/cover.jpg);
+  background-repeat: no-repeat;
+  background-position: right top;
+  background-size: cover;
+  background-attachment: fixed;
 }

@@ -63,7 +63,7 @@
     }
     // 文章打赏
     .post-reward{
-        @include border_pic(url(/img/border/border1.png),50,repeat);
+        @include border_pic(url(../img/border/border1.png),50,repeat);
         position: relative;
         span {
             @include padding_fill_circle(.8rem,var(--siteColor),50%);

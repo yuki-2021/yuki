@@ -1,7 +1,7 @@
 /*-- tags    --*/
 .tags-con {
   @include margin_ctr(800px);
-  @include border_pic(url(/img/border/border1.png),25,repeat);
+  @include border_pic(url(../img/border/border1.png),25,repeat);
   @include flex_row_center;
 
   .tags-list {
@@ -37,7 +37,7 @@
         width: 33%;
         padding: 10px;
         div {
-          @include border_pic(url(/img/border/border1.png),22,repeat);
+          @include border_pic(url(../img/border/border1.png),22,repeat);
           border-width: 15px !important;
           height: 95px;
           padding-left: 1rem;
@@ -99,7 +99,7 @@
       display: block;
       width: 115px;
       height: 150px;
-      background-image: url('/img/border/b3.png');
+      background-image: url(../img/border/b3.png);
       background-size: cover ;
   }
   &::before {

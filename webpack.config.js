@@ -11,11 +11,11 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const OptimizeCssAssetsPlugin  = require('optimize-css-assets-webpack-plugin')
 
 module.exports = {
-    entry: './index.js',
+    entry: './source/index.js',
     output: {
         filename: 'build.js',
         // __dirname表示当前路径
-        path: resolve(__dirname,'dist')
+        path: resolve(__dirname,'source/dist')
     },
     // loaders
     module:{
@@ -37,19 +37,28 @@ module.exports = {
                 ]
             },
             {
+                test: /\.(jpg|png|gif)$/,
+                loader: 'url-loader',
+                options: {
+                    limit: 3 * 1024,
+                    name: '[name].[ext]',
+                    outputPath: 'img'
+                }
+            },
+            {
                 exclude: /\.(js|css|scss|jpg|png|gif|html)$/,
                 // url-loader 依赖于 file-loader
                 loader: 'file-loader',
                 options: {
                     name: '[name].[ext]',
-                    outputPath: '/fonts'
+                    outputPath: 'fonts'
                 }
             }
         ]
     },
     plugins: [
         new MiniCssExtractPlugin({
-            filename: 'css/build.css'
+            filename: 'build.css'
         }),
         new OptimizeCssAssetsPlugin()
     ],

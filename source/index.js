@@ -4,8 +4,6 @@
 
 // yuki stylesheet
 import './css/style.scss'
-// strawberry iconfont
-import './plugins/strawberry/style.css'
 // animate css
 import 'animate.css'
 // csshake

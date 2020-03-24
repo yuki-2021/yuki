@@ -1,0 +1,600 @@
+/*---------------------------------------------------------
+
+ O- 定义变量
+
+---------------------- -------------------------------- */
+@import '_variable';
+:root {
+    --siteColor: #fa7298;
+    --siteColorLight: #FF94C6;
+    --textColor: #333;
+    --bgColor: #f8f8f8;
+}
+
+/*---------------------------------------------------------
+
+ I- reset样式
+
+---------------------- -------------------------------- */
+@import "_variable" ;
+
+/*-- 1. 初始化margin和padding */
+html, body, div
+h1, h2, h3, h4, h5, h6, hr, p, blockquote, 
+dl, dt, dd, ul, ol, li,
+form, fieldset, legend,button, input, textarea, select,
+table, th, tr, td
+pre
+{
+    margin:0;
+    padding:0
+}
+/*-- 2. 全部元素使用box-sizing */
+*,
+*:before, 
+*:after{
+	box-sizing: border-box;
+}
+/*-- 3.html5新标签初始化 */
+article,aside,footer,header,main,nav{
+    display: block;
+    margin:0;
+    padding:0;
+}
+/*-- 4. 删除 ul 和 ol的样式 */
+ul,ol{
+    list-style: none;
+}
+/*-- 5.设置html的样式 */
+html{
+	color: var(--textColor);
+    scroll-behavior: smooth;
+    font: 16px/1.5 "Microsoft JhengHei", "Work Sans", Arial, sans-serif;
+    background: var(--bgColor);
+
+    @media screen and (max-width: 825px){
+        font-size: 14px;
+      }
+      @media (max-width: 500px)  {
+        font: 12px;
+      }
+}
+/*-- 6.选择后内容 */
+::selection{
+	color: $colorWhite;
+	background-color: $colorBlack;
+}
+/*-- 7.滚动条 */	
+::-webkit-scrollbar{
+	width: 5px;
+	height: 5px;
+}
+::-webkit-scrollbar-thumb{
+    border-radius: 5px;
+}
+body::-webkit-scrollbar-thumb{
+	border-radius: 5px;
+	background-color: var(--siteColorLight);
+}
+::-webkit-scrollbar-track{
+	border-radius: 5px;
+}
+body::-webkit-scrollbar-track:hover{
+	background-color: rgba($color: var(--bgColor), $alpha: 0.5);
+}
+::-webkit-scrollbar-track:hover{ background: rgba(0, 0, 0, .05) }
+
+
+body {
+    background-image:url(/img/cover/cover.png);
+    background-repeat: no-repeat;
+    background-position: right top;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+/*---------------------------------------------------------
+
+ II- 元素定义默认样式+
+
+---------------------- -------------------------------- */
+/*  1. 初始化h1到h6 hr p blockquote */
+@for $i from 1 through 6 {
+    h#{$i} { 
+        font-size: 1rem;
+        margin-bottom: 1rem;
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+h1 {
+    font-size: 2rem;
+}
+hr{
+    margin: 1.5rem 0;
+    border: 0;
+    border-top: 1px rgba($color: $colorBlack, $alpha: 0.5) solid;
+
+    &.light {
+        border-top: 1px rgba($colorWhite, 0.5) solid;
+    }
+}
+p{
+	line-height: 1.8em;
+	margin-bottom: 1rem;
+}
+blockquote {
+    border-left: 5px var(--siteColor) solid;
+    background-color: var(--siteColor);
+    padding: 1rem 1rem 1rem 2rem;
+    margin: 0 0 1rem;
+    font-style: oblique;
+    line-height: 1.8em;
+}
+cite{   
+	font-style: normal;
+	color: var(--siteColor);
+}
+/*  2. 初始化列表 ul ol li dl dt dd*/
+ul,ol{
+    margin-left: 0rem;
+    list-style: none;
+}
+ul.flag li::before{
+    display: inline;
+    content: "🚩";
+    margin-right: .3em;
+}
+ul.circle li::before{
+    display: inline;
+    content: "⭕️";
+    margin-right: .3em;
+}
+ul.error li::before{
+    display: inline;
+    content: "❌";
+    margin-right: .3em;
+}
+ul.check li::before{
+    display: inline;
+    content: "✅";
+    margin-right: .3em;
+}
+ol.katakana {
+    list-style: katakana;
+    list-style-position: inside;
+}
+dl dd{
+    margin-left: 1.25rem;
+    &::before {
+        content: "--";
+        margin-right: 0.25rem;
+    }
+}
+/*** 3. 初始化表单元素 **/
+input, select, textarea{
+    outline: none;
+    border: none;
+    background: none;
+    vertical-align: middle;
+}
+input[type*="date"], input[type="email"], input[type="month"], input[type="number"], input[type="password"], input[type="search"], input[type="tel"], input[type="text"], input[type="time"], input[type="url"], input[type="week"],
+select, textarea{
+    border: #ccc 1px solid;
+    border-radius: 4px;
+    padding: .5em;
+}
+input[disabled], textarea[disabled]{
+    cursor: no-drop !important;
+}
+input[disabled], textarea[disabled], input[readonly]{
+    background: rgb(235, 235, 228);
+}
+input.invalid, input:out-of-range{
+    border-color: #c40b00;
+    background: rgba(255, 0, 0, .1);
+}
+input[type="range"]{
+    -webkit-appearance: none;
+    min-height: 1.5rem;
+    overflow: hidden;
+    cursor: grab;
+    margin: 0;
+    height: 100%;
+} 
+input[type="range"]::-webkit-slider-runnable-track {
+    background: #3498db;
+    height: 2px;
+    pointer-events: none;
+} 
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 14px;
+    height: 14px;
+    background: #fff;
+    border-radius: 50px;
+    margin-top: -6px;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    transition: .3s border-color, .3s background-color;
+}  
+input[type="range"]:active::-webkit-slider-thumb {
+    border-color: #3498db;
+    background-color: #3498db;
+}
+textarea{
+    overflow: auto;
+    resize: vertical;
+}
+::-webkit-file-upload-button{
+    outline: none;
+    border: none;
+    background: #3498db;
+    padding: .5em 1em;
+    color: #fff;
+    border-radius: .5em;
+    cursor: pointer;
+}
+progress{
+    overflow: auto;
+    border-radius: 50px;
+}
+progress::-webkit-progress-bar{
+    background-color: #eee;
+}
+input[type="checkbox"], input[type="radio"]{
+    -webkit-appearance: none;
+    width: 1.5em !important;
+    height: 1.5em !important;
+    margin: 0 .5em 0 0;
+    cursor: pointer;
+    position: relative;
+    vertical-align: middle; 
+}
+input[type="checkbox"], input[type="radio"] + span {
+    vertical-align: middle;
+}
+input[type="checkbox"]:before, input[type="radio"]:before{
+    content: '';
+    width: 100%;
+    height: 100%;
+    display: block;
+    border-radius: .2em;
+    box-shadow: 0 0 0 1px #ccc inset;
+    transition: background 0.3s, box-shadow 0.3s;
+}
+input[type="checkbox"]:checked:before{
+    box-shadow: none;
+    background: #3498db;
+}
+input[type="radio"]:checked:before{
+    background: #3498db;
+    border: 2px solid #3498db;
+    box-shadow: 0 0 0 .2em #fff inset;
+}
+input[type="radio"], input[type="radio"]:before{ border-radius: 100% }
+input[type="checkbox"], input[type="checkbox"]:before{ border-radius: .2em }
+input[type="checkbox"]:after{
+    content: '';
+    width: 30%;
+    height: 60%;
+    border-right: .15em solid #fff;
+    border-bottom: .15em solid #fff;
+    transform: rotate(45deg) scale(0);
+    position: absolute;
+    top: 10%;
+    left: -2%;
+    transition: transform .3s;
+    transform-origin: 100% 100%;
+}
+input[type="checkbox"]:checked:after{
+    transform: rotate(45deg) scale(1);
+} 
+/* -- 开关按钮 */
+input.switch{
+    -webkit-appearance: none;
+    width: 3em !important;
+    height: 1.5em !important;
+    border-radius: 50px;
+    border: 1px solid #ddd;
+    cursor: pointer;
+    position: relative;
+    box-sizing: content-box;
+    background: #eee;
+    transition: border .3s, background .3s;
+}
+input.switch:checked{
+    box-shadow: none;
+    background: #3498db;
+    border-color: #3498db;
+}
+input.switch:before{
+    content: '';
+    display: block;
+    width: 1.5em;
+    height: 1.5em;
+    background: #3498db;
+    border-radius: 100%;
+    transition: transform 0.3s;
+    box-shadow: none;
+    position: absolute;
+    margin: 0;
+    border: 0;
+}
+input.switch:checked:before{
+    background: #fff;
+    transform: translateX(1.5em);
+}
+input.switch:after{
+    content: normal;
+}
+/*  4. 初始化表单组 forn-inline form-horizontal form-block  */
+/** fieldset表示一个表单组  */
+fieldset {
+    border: 0;
+    margin-bottom: 1em;
+}
+fieldset label {
+    display: inline-block;
+    font-size: .85em;
+    color: rgba(0,0,0,.6);
+    margin-bottom: .5rem;
+    user-select: none;
+}
+fieldset.form-block label {
+    display: block;
+}
+fieldset.form-block input, fieldset.form-block select, fieldset.form-block textarea, fieldset.form-block progress{ width: 100% }
+fieldset.form-horizontal label,fieldset.form-inline label {
+   display: inline-block;
+   vertical-align: middle;
+   text-align: right;
+   margin-bottom: 0;
+}
+fieldset.form-horizontal label{
+    padding-right: 3em;
+    width: 16%;
+}
+fieldset.form-horizontal input, fieldset.form-horizontal select, fieldset.form-horizontal textarea, fieldset.form-horizontal progress{
+    width: 83%;
+}
+
+
+/*-  5. 初始化 btn  a abbr  em mark kbd--*/
+.btn{
+    padding: .5rem 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background: #fff;
+    color: #999;
+    cursor: pointer;
+    display: inline-block;
+}
+.btn[disabled]{
+   opacity: .5;
+   cursor: not-allowed;
+}
+.btn i{ margin-right: .5em }
+.btn.small{ font-size: .85em }
+.btn.middle, .btn.large{ padding: .75em 1.5em }
+.btn.large{ font-size: 1.2em }
+.btn.red, .btn.yellow, .btn.blue, .btn.green{ 
+   color: #fff;
+   border: transparent;
+}
+.btn.red{
+   background: #ea644a;
+}
+.btn.yellow{
+   background: #ffb03a;
+}
+.btn.blue{
+   background: #3498db;
+}
+.btn.green{
+   background: #27a17e;
+}
+a {
+    text-decoration: none;
+    color: var(--siteColor);
+}
+a:hover{
+	color: var(--siteColorLight);
+}
+a.text {
+    color: #333;
+    &:hover {
+        color: var(--siteColorLight);
+    }
+}
+abbr[title] {
+    cursor: help;
+    text-decoration: none;
+    border-bottom: 1px dashed;
+}
+em, mark, kbd{
+    font-size: .85em;
+    padding: .25em .5em;
+    border-radius: .5em;
+}
+em{
+	color:#fff;
+	font-style: normal;
+	background: #3498db;
+}
+kbd{
+    color: #fff;
+    background: #333;
+    font-family: 'Consolas', 'Courier New', monospace, "微软雅黑";
+}
+img,svg,audio,video{
+    max-width: 100%;
+    vertical-align: middle;
+}
+video,audio{
+	outline: none;
+}
+
+/* --6. 初始化代码 */
+pre,code{
+	font-family: "Consolas","Courier New",monospace, "微软雅黑";
+}
+
+:not(pre) > code{
+	color: #c40b00;
+	font-size: 0.85rem;
+	word-wrap: normal;
+	word-break: break-all;
+	border-radius: 0.5rem;
+	padding: 0.25rem 0.5rem;
+	background-color: #f7f2f4;
+}
+
+pre > code{
+	color: #fff;
+	font-size: inherit;
+	tab-size: 4;
+	word-break: normal;
+	padding: 1rem;
+	display: block;
+	border-radius: 5px;
+    background-color: #333;
+}
+
+/* - 7. 初始化表格*/
+table{
+    width: 100%;
+    max-width: 100%;
+    border-collapse: collapse;
+    border: 1px solid transparent;
+}
+
+table > thead{
+    background: var(--siteColor);
+    border-left: 1px solid var(--siteColor);
+    border-right: 1px solid var(--siteColor);
+}
+
+table.fill > tbody{
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+}
+
+table th, table td{
+    padding: .75em;
+    text-align: left;
+    vertical-align: top;
+}
+
+table > thead > tr{  border-bottom: none; }
+
+
+table > tbody > tr{ border-bottom: 1px solid #ddd }
+table > tbody > tr:last-child{ border-bottom: 0 }
+
+table > tbody > tr{
+    transition: background .3s;
+}
+
+table > tbody > tr:hover{
+    background: #eee;
+}
+
+table > thead > tr > th, table > tbody > tr > th, table > tfoot > tr > th,
+table > thead > tr > td, table > tbody > tr > td, table > tfoot > tr > td{
+    white-space: nowrap;
+}
+
+table > thead > tr > th, table > thead > tr > td{
+    color: #fff;
+    padding: 1em .75em;
+}
+
+
+table > tbody > tr:nth-child(even) > th, table > tbody > tr:nth-child(even){
+    background: #f7f7f7;
+}
+/* - 8. 初始化iframe */
+iframe{
+    border: none;
+}
+
+
+/*---------------------------------------------------------
+
+ III- 动画 (使用animate.css) 可能会用不到
+
+---------------------- -------------------------------- */
+
+/* - 淡入淡出 */
+@keyframes fade-in{ from{ opacity: 0 } to{ opacity: 1 } }
+@-webkit-keyframes fade-in{ from{ opacity: 0 } to{ opacity: 1 } }
+
+@keyframes fade-off{ from{ opacity: 1 } to{ opacity: 0 } }
+@-webkit-keyframes fade-off{ from{ opacity: 1 } to{ opacity: 0 } }
+
+@keyframes fade-in-top{ from{ opacity: 0; transform: translateY(20px) } to{ opacity: 1; transform: translateY(0) } }
+@-webkit-keyframes fade-in-top{ from{ opacity: 0; transform: translateY(20px) } to{ opacity: 1; transform: translateY(0) } }
+
+@keyframes fade-in-bottom{ from{ opacity: 0; transform: translateY(-20px) } to{ opacity: 1; transform: translateY(0) } }
+@-webkit-keyframes fade-in-bottom{ from{ opacity: 0; transform: translateY(-20px) } to{ opacity: 1; transform: translateY(0) } }
+
+@keyframes fade-in-left{ from{ opacity: 0; transform: translateX(20px) } to{ opacity: 1; transform: translateX(0) } }
+@-webkit-keyframes fade-in-left{ from{ opacity: 0; transform: translateX(20px) } to{ opacity: 1; transform: translateX(0) } }
+
+@keyframes fade-in-right{ from{ opacity: 0; transform: translateX(-20px) } to{ opacity: 1; transform: translateX(0) } }
+@-webkit-keyframes fade-in-right{ from{ opacity: 0; transform: translateX(-20px) } to{ opacity: 1; transform: translateX(0) } }
+
+/* - 淡入缩放 */
+@keyframes fade-small-large{ from{ opacity: 0; transform: scale(.5, .5) } to{ opacity: 1; transform: scale(1, 1) } }
+@-webkit-keyframes fade-small-large{ from{ opacity: 0; transform: scale(.5, .5) } to{ opacity: 1; transform: scale(1, 1) } }
+
+@keyframes fade-large-small{ from{ opacity: 1; transform: scale(1, 1) } to{ opacity: 0; transform: scale(.5, .5) } }
+@-webkit-keyframes fade-large-small{ from{ opacity: 1; transform: scale(1, 1) } to{ opacity: 0; transform: scale(.5, .5) } }
+
+@keyframes fade-larger-small{ from{ opacity: 0; transform: scale(1.5, 1.5) } to{ opacity: 1; transform: scale(1, 1) } }
+@-webkit-keyframes fade-larger-small{ from{ opacity: 0; transform: scale(1.5, 1.5) } to{ opacity: 1; transform: scale(1, 1) } }
+
+@keyframes fade-small-larger{ from{ opacity: 1; transform: scale(1, 1) } to{ opacity: 0; transform: scale(1.5, 1.5) } }
+@-webkit-keyframes fade-small-larger{ from{ opacity: 1; transform: scale(1, 1) } to{ opacity: 0; transform: scale(1.5, 1.5) } }
+
+@keyframes scale-small-large{ from{ transform: scale(0, 0) } to{ transform: scale(1, 1) } }
+@-webkit-keyframes scale-small-large{ from{ transform: scale(0, 0) } to{ transform: scale(1, 1) } }
+
+@keyframes scale-large-small{ from{ transform: scale(1, 1) } to{ transform: scale(0, 0) } }
+@-webkit-keyframes scale-large-small{ from{ transform: scale(1, 1) } to{ transform: scale(0, 0) } }
+
+/* - 平移 */
+@keyframes up-and-down{ from{ transform: translateY(-20px) } to{ transform: translateY(20px) } }
+@-webkit-keyframes up-and-down{ from{ transform: translateY(-20px) } to{ transform: translateY(20px) } }
+
+@keyframes left-and-right{ from{ transform: translateX(-20px) } to{ transform: translateX(20px) } }
+@-webkit-keyframes left-and-right{ from{ transform: translateX(-20px) } to{ transform: translateX(20px) } }
+
+/* - 旋转 */
+@keyframes rotate{ from{ transform: rotate(0deg) } to{ transform: rotate(360deg) } }
+@-webkit-keyframes rotate{ from{ transform: rotate(0deg) } to{ transform: rotate(360deg) } }
+
+/* - 弹跳 */
+@keyframes jump{
+    0% {
+        transform: translateY(0) scale(1.15,.8)
+    }
+
+    20% {
+        transform: translateY(-35px) scaleY(1.1)
+    }
+
+    50% {
+        transform: translateY(-50px) scale(1)
+    }
+
+    80% {
+        transform: translateY(-35px) scale(1)
+    }
+
+    to {
+        transform: translateY(0) scale(1.15,.8)
+    }
+}
+

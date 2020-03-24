@@ -1,0 +1,156 @@
+@import 'base';
+
+/**
+*  margin-ctr
+*/
+@mixin margin_ctr($width) {
+    max-width: $width;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/**---  border-mixin ---*/
+@mixin border_pic($url,$width,$repeat) {
+    border: #{$width}px dashed transparent;
+    border-image: $url $width $repeat;
+}
+/**---  padding-fill ---*/
+@mixin padding_fill_left_right($left,$right,$bgColor) {
+    background-color: $bgColor;
+    padding-left: $left;
+    padding-right: $right;
+}
+@mixin padding_fill_up_down($up,$down,$bgColor) {
+    background-color: $bgColor;
+    padding-top: $up;
+    padding-bottom: $down;
+}
+@mixin padding_fill($pd, $bg) {
+    padding: $pd;
+    background-color:  $bg;
+}
+@mixin padding_fill_circle($padding,$color,$radius) {
+    @include padding_fill($padding,$color);
+    border-radius: $radius;
+}
+/*---- font-mixin ----*/
+@mixin font_size_height($size,$height) {
+    font-size: $size;
+    line-height: $height;
+}
+@mixin max_row($row) {
+    display: -webkit-box !important;
+    -webkit-box-orient: vertical !important;
+    -webkit-line-clamp: $row !important;
+    overflow : hidden !important;
+    text-overflow: ellipsis !important;
+}
+/*---  形状  ----*/
+@mixin tri_top($width,$color) {
+    width: 0;
+    height: 0;
+    border-left: $width solid transparent;
+    border-right: $width solid transparent;
+    border-bottom: $width solid $color;
+}
+@mixin ret($width,$height,$color) {
+    width: $width;
+    height: $height;
+    background: $color;
+}
+/*--- image mixin  ----*/
+@mixin img_ret($width) {
+    display: inline_block;
+    width: $width;
+    height: $width;
+}
+@mixin img_circle($width) {
+    @include img_ret($width);
+    border-radius: 50%;
+}
+@mixin img_block($width) {
+    display: inline;
+    width: $width;
+}
+/*
+ mixins  - position
+*/
+@mixin pos_base($pos, $left , $top ,$zidx) {
+    position: $pos;
+    top: $top;
+    left: $left !important;
+    z-index: $zidx;
+}
+@mixin pos_base_lb($pos, $left , $bottom ,$zidx) {
+    position: $pos;
+    bottom: $bottom;
+    left: $left !important;
+    z-index: $zidx;
+}
+
+@mixin pos_base_rb($pos, $right , $bottom ,$zidx) {
+    position: $pos;
+    bottom: $bottom;
+    right: $right;
+    z-index: $zidx;
+}
+/*--- position  ----*/
+@mixin pos_abs($left,$top,$zidx) {
+    @include pos_base(absolute,$left,$top,$zidx)
+}
+@mixin pos_abs_lb($left,$bottom,$zidx) {
+    @include pos_base_lb(absolute,$left,$bottom,$zidx)
+}
+@mixin pos_abs_rb($right,$bottom,$zidx) {
+    @include pos_base_rb(absolute,$right,$bottom,$zidx)
+}
+@mixin pos_fixed($left,$top,$zidx) {
+    @include pos_base(fixed, $left, $top, $zidx)
+}
+/**
+* flex 布局
+*/
+@mixin flex_all($dir,$wrap,$just,$align) {
+    display: flex;
+    flex-direction: $dir;
+    flex-wrap: $wrap;
+    justify-content: $just;
+    align-items: $align;
+}
+/*--  水平居中 --*/
+@mixin flex_col_center {
+    @include flex_all(column,nowrap, start,center);
+}
+/*--  垂直居中 --*/
+@mixin flex_row_center {
+    @include flex_all(row,nowrap, center,start);
+}
+@mixin flex_row_vcenter {
+    @include flex_all(row,nowrap, start,center);
+}
+/*--- 水平换行 用于响应式列表  ---*/
+@mixin flex_row_wrap($just) {
+    @include flex_all(row,wrap,$just,start);
+}
+/*--- 元素缩放  ---*/
+@mixin flex_item($grow,$shrink) {
+    flex-grow: $grow;
+    flex-shrink: $shrink;
+}
+@mixin  flex_base($col,$jst-ctr,$alg-item) {
+    display: flex;
+    flex-direction: $col;
+    justify-content: $jst-ctr;
+    align-items: $alg-item;
+}
+
+@mixin flex_col_ctr_ctr {
+    @include flex_base(column,center,center)
+}
+
+
+
+
+
+
+

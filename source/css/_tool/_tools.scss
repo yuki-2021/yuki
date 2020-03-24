@@ -1,0 +1,84 @@
+/*-- 通用 Margin 和 Padding --*/
+@for $i from 1 through 30 {
+  .m-#{$i}{margin:5px * $i}
+  .ml-#{$i}{margin-left:5px * $i}
+  .mr-#{$i}{margin-right:5px * $i}
+  .mt-#{$i}{margin-top:5px * $i}
+  .mb-#{$i}{margin-bottom:5px * $i}
+  .pd-#{$i}{padding:5px * $i}
+  .pdl-#{$i}{padding-left:5px * $i}
+  .pdr-#{$i}{padding-right:5px * $i}
+  .pdt-#{$i}{padding-top:5px * $i}
+  .pdb-#{$i}{padding-bottom:5px * $i}
+}
+/*--   颜色和排版   --*/
+.siteColor {
+  color: var(--siteColor);
+}
+.textColor {
+  color: var(--textColor);
+}
+.hoverColor {
+  color: var(--siteColorLight);
+}
+.bgColor {
+  color: var(--bgColor);
+}
+
+.tl { text-align: left; }
+.tc { text-align: center; }
+.tr { text-align: right; }
+
+/**-- 浮动  ---*/
+.fl { float: left; }
+.fr { float: right; }
+.cf { zoom: 1; }
+.cf:after {
+  content:"";
+  display:block;
+  width: 0;
+  height:0;
+  clear:both;
+  overflow:hidden;
+}
+.clearfix{*zoom:1};
+.clearfix::before{
+content: '';
+display: table;
+}
+.clearfix::after{
+content: '';
+display: table;
+clear: both;
+}
+/*-- 其他 --*/
+.y-title {
+  text-align: center;
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+}
+@keyframes shake-it{
+  0%{
+      text-shadow: 0 0 rgba(0, 255, 255, .5), 0 0 rgba(255, 0, 0, .5);
+  }
+  25%{
+      text-shadow: -2px 0 rgba(0, 255, 255, .5), 2px 0 rgba(255, 0, 0, .5);
+  }
+  50%{
+      text-shadow: -5px 0 rgba(0, 255, 255, .5), 3px 0 rgba(255, 0, 0, .5);
+  }
+  100%{
+      text-shadow: 3px 0 rgba(0, 255, 255, .5), 5px 0 rgba(255, 0, 0, .5);
+  }
+}
+.yuki-shake{
+  animation: shake-it .5s reverse infinite cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+
+
+
+
+

@@ -37,7 +37,7 @@ menu:
   }
 
 # 移动端头像配置
-mobileAvater: 'https://cdn.jsdelivr.net/gh/Shaodachuan/yuki@1.1.1/source/img/default-avatar.jpg'
+mobileAvater: 'https://cdn.jsdelivr.net/gh/Shaodachuan/yuki/source/img/default-avatar.jpg'
 mobileLinks: 
   github: { color: 000000, url: https://github.com/Shaodachuan, icon: czs-github-logo}
   weibo: { color: eb192d, url: https://weibo.com/5129416778/profile?rightmod=1&wvr=6&mod=personinfo, icon: czs-weibo}

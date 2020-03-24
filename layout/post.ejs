@@ -1,51 +1,30 @@
-<article id="post" class="mt-20 ma">
-  <div class="post-box">
-    
+<article id="post" class="mt-20">
+  
 
-    
-    <!-- <div class="post-aside">
-   
-      <div class="post-catlog-box">
-        这里是目录
-      </div>
-    </div> -->
-
-    <div class="post-main">
-      <!-- 文章主体 -->
-      <div class="post-con">
-        <h1 class="title tc"><%= page.title %></h1>
-        <%- page.content %>
-      </div>
-      <!-- 打赏 -->
-      <div class="post-reward tc mt-20">
-        <span>💰</span>
-        <div>
-            <img src="/img/reward/zfb.jpg"alt="">
-            <img src="/img/reward/zfb.jpg" alt="">
-        </div>
-        <p>©商业转载请联系作者获得授权，非商业转载请注明出处。</p>
-      </div>
-        
-        
-      
-        <!-- 分享 -->
-        <div class="post-share-box">
-          <div class="post-lince-box">
-            &copy;商业转载请联系作者获得授权，非商业转载请注明出处。
-          </div>
-          <div class="post-share-item">
-            <div class="social-share"></div>
-          </div>
-        </div>
-     
-      <!-- 评论 -->
-      <div class="post-comment-box">
-        <div id="vcomments"></div>
-      </div>
-
-      
+  <!-- 文章主体 -->
+  <div class="post-con">
+    <h1 class="title tc"><%= page.title %></h1>
+    <div class="post-md">
+      <%- page.content %>
     </div>
-   
-    
   </div>
+  <!-- 打赏 -->
+  <div class="post-reward mt-20 tc">
+    <span>💰</span>
+    <div class="animated fadeIn">
+        <img class="animated rubberBand" src="/img/reward/wepay.jpg"alt="">
+        <img class="animated rubberBand" src="/img/reward/alipay.jpg" alt="">
+    </div>
+    <p class="mt-5">©商业转载请联系作者获得授权，非商业转载请注明出处。</p>
+    <p class="social-share"></p>
+  </div>
+  <!-- 评论 -->
+  <div id="vcomments"></div>
 </article>
+
+<aside id="post-aside" class="animated bounceInLeft">
+    <div class="post-tocbot"></div>
+    <span class="post-togo-btn">🍀</span>
+</aside>
+
+<span id="post-aside-togo" class="post-togo-btn animated bounceInLeft">🍀</span>

@@ -30,10 +30,20 @@ module.exports = {
             },
             {
                 test: /\.css$/,
+
                 loaders: [
                     MiniCssExtractPlugin.loader,
                     'css-loader'
                 ]
+            },
+            {
+                exclude: /\.(js|css|scss|jpg|png|gif|html)$/,
+                // url-loader 依赖于 file-loader
+                loader: 'file-loader',
+                options: {
+                    name: '[name].[ext]',
+                    outputPath: '/fonts'
+                }
             }
         ]
     },
@@ -43,5 +53,5 @@ module.exports = {
         }),
         new OptimizeCssAssetsPlugin()
     ],
-    mode: 'development'
+    mode: 'production'
 }

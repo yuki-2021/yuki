@@ -1,3 +1,4 @@
+/*-- 留言板 --*/
 #bg-story {
   @include margin_ctr(800px);
   padding: 1rem;
@@ -9,7 +10,7 @@
   
   .word { 
       padding: 3.125rem 0;
-      border-image: url(/img/words-border.png) 40 40 40 40 fill stretch;
+      border-image: url(/img/border/words-border.png) 40 40 40 40 fill stretch;
       border-width: 40px 40px 50px 50px;
       border-style: solid;  
       border-color: transparent; 
@@ -22,20 +23,48 @@
   }
 
 
-  #vcomments {
-    border-radius: 3px;
-    box-shadow: 1px 2px 5px 0px rgba(0,0,0,.1);
-    padding: 1rem;
-    background-color: #fff;
-    
-    margin-top: 2rem;
-    transition: all .3s; 
-    &.hv {
-      margin-top: 1.8rem;
-      box-shadow: 1px 2px 8px 0px rgba(0,0,0,.3);
-    }
-    .info {
-      display: none;
-    }
+  
+}
+
+#vcomments {
+  border-radius: 3px;
+  box-shadow: 1px 2px 5px 0px rgba(0,0,0,.1);
+  padding: 1rem;
+  background-color: #f8f8f8;
+  
+  margin-top: 2rem;
+  transition: all .3s; 
+  &.hv {
+    margin-top: 1.8rem;
+    box-shadow: 1px 2px 8px 0px rgba(0,0,0,.3);
   }
+  .info {
+    display: none;
+  }
+}
+
+/*-- 关于我 --*/
+.about {
+  @include margin_ctr(800px);
+  padding: 2rem;
+  
+
+  h3{
+      text-align: center;
+      font-size: 1.25rem;
+  }
+  .botui-app-container {
+      width: 100% !important;
+      box-shadow: 1px 2px 5px 0px rgba(0,0,0,.1);
+      padding: 1rem;
+      background-color: #f8f8f8;
+  }
+  .botui-container {
+      background-color: #f8f8f8 !important;
+  }
+}
+
+
+#nprogress .bar {
+  height: 5px;
 }

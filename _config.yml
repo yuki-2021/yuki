@@ -1,21 +1,40 @@
+siteName: '进击のYuki'
 # 菜单配置
 menu:
-  首页: {path: /, icon: czs-firewall }
-  Y星史: {path: /archives , icon : czs-usb, submenu: {
-    标签:  {path: /tags, icon: czs-play-l},
-    归档:  {path: /archives, icon: czs-book},
-    随想:  {path: /think, icon: czs-sword},
-    古诗:  {path: /song, icon: czs-taiji}
+  首页: {
+    path: /, 
+    icon: czs-firewall 
+  }
+  Y星史: {
+    path: /archives , 
+    icon : czs-usb, 
+    submenu: {
+      标签:  {path: /tags, icon: czs-play-l},
+      归档:  {path: /archives, icon: czs-book},
+      随想:  {path: /think, icon: czs-sword},
+      古诗:  {path: /song, icon: czs-taiji}
   }}
-  清单: {path: /video, icon : czs-list-clipboard, submenu: {
+  清单: {
+    path: /video, 
+    icon: czs-list-clipboard,
+    submenu: {
     书单:  {path: /book, icon: czs-book},
     游戏:  {path: /game, icon: czs-sword},
     番组:  {path: /group, icon: czs-play-l},
     视频:  {path: /video, icon: czs-taiji}
   }}
-  留言板: {path: /words, icon : czs-web-edit }
-  H联盟: {path: /friends, icon : czs-heart }
-  关于我: {path: /about, icon : czs-pokemon-ball}
+  留言板: {
+    path: /words, 
+    icon: czs-web-edit 
+    }
+  友人帐: {
+    path: /friends, 
+    icon : czs-heart 
+  }
+  关于我: {
+    path: /about, 
+    icon : czs-pokemon-ball
+  }
 
 # 移动端头像配置
 mobileAvater: '/img/default-avatar.jpg'
@@ -40,3 +59,20 @@ pcLinks:
   twitter: { color: 41abe1, url: www.twitter.de/, icon: czs-twitter}
   facebook: { color: FDD100, url: www.facebook.com, icon: czs-facebook}
   qq: { color: 0366d6, url: http://wpa.qq.com/msgrd?v=3&uin=577746040&site=qq&menu=yes, icon: czs-qq}
+
+
+#  index页面配置
+indexConfig: 
+  backend: 
+    title: 'Yukiの后端'
+    subtitle: '后端菜如狗'
+    field: 'backend'
+    url: https://github.com/Shaodachuan, 
+    icon: czs-github-logo
+  fontend: 
+    title: 'Yukiの前端'
+    subtitle: '前端菜如鸡你太美Baby'
+    field: 'fontend'
+    url: https://github.com/Shaodachuan, 
+    icon: czs-github-logo
+

@@ -1,64 +1,23 @@
-// 引入Variable
-@import "_variable";
-@import "_tools";
 
-@import "common";
-@import "font";
+@import "_tool/font";
+@import "_tool/variable";
+@import "_tool/base";
+@import "_tool/mixin";
+@import "_tool/tools";
 
 
-@import "_comp/hover-div";
-
-@import "_partial/header";
-@import "_partial/jumbotron";
-@import "_partial/carousel";
-@import "_partial/archive.scss";
-@import "_partial/list.scss";
 
 @import "_page/index";
-@import "_page/words";
 @import "_page/post";
-@import "_page/me";
-@import "_page/video";
-@import "global";
-
-
-//通用宽度
-.container {
-  max-width: 1140px;
-  margin: 0 auto;
-}
-
-#nprogress .bar {
-  height: 3px;
-}
-
-
-@import "_keyframes/shakeit";
+@import "_page/archive.scss";
+@import "_page/list.scss";
+@import "_page/words";
 
 
 
 
-@import "_partial/footer";
 
 
 
-.clearfix{*zoom:1};
-.clearfix::before{
-content: '';
-display: table;
-}
-.clearfix::after{
-content: '';
-display: table;
-clear: both;
-}
 
 
-
-body {
-  background-image:url(/img/cover/cover.jpg);
-  background-repeat: no-repeat;
-  background-position: right top;
-  background-size: cover;
-  background-attachment: fixed;
-}

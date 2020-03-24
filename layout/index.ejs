@@ -1,15 +1,14 @@
-<!-- index-->
-<div class="yuki-index pl3 ">
-    <!-- jumb -->
-    <%- partial('_partial/jumbotron')%>
-
-    <!-- 前端 -->
-    <div class="mt-25 mb-15">
-      <%- partial('_partial/ytitle',  {title: 'Yukiの后端',subtitle:'爆裂吧 现实 粉碎吧 精神 放逐这个世界!'}) %>
+<!-- jumb -->
+<%- partial('_partial/jumbotron')%>
+<!-- jumb -->
+<div class="">
+  <% for(name in theme.indexConfig) {%>
+    <div class="mt-15 mb-15">
+      <%- partial('_partial/ytitle',  {title: theme.indexConfig[name].title,subtitle:theme.indexConfig[name].subtitle}) %>
     </div>
     <div class="wall cf pdl-8 pdr-8"> 
       <% page.posts.each(function(item) { %>
-          <% if (item.field == 'backend') {%>
+          <% if (item.field == theme.indexConfig[name].field) {%>
               <a class="article text" href="<%-item.path %>"> 
                 <div class="animated flipInX">
                   <img src="<%- item.cover%>" />
@@ -19,25 +18,7 @@
           <% } %>
       <% }) %>
     </div> 
-
-    <!-- 后端 -->
-    <div class="mt-25 mb-15">
-      <%- partial('_partial/ytitle',  {title: 'Yukiの前端',subtitle:'爆裂吧 现实 粉碎吧 精神 放逐这个世界!'}) %>
-    </div>
-    <div class="wall cf pdl-8 pdr-8"> 
-      <% page.posts.each(function(item) { %>
-          <% if (item.field == 'fontend') {%>
-           
-              <a class="article text" href="<%-item.path %>"> 
-                <div class="animated flipInX">
-                  <img src="<%- item.cover%>" />
-                  <h2> <%= item.field %> | aaa |<%= item.title%> | <%= item.desc %></h2>
-                </div>
-              </a>
-          
-          <% } %>
-      <% }) %>
-    </div> 
+  <% }%> 
 </div>
 
 
